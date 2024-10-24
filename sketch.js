@@ -8,6 +8,7 @@ let input; // Input element for the player's name
 let submitButton; // Button element for submission
 let showGameOptions = false; // Variable to track if game options should be shown
 let page = 0; // Track which page is currently displayed
+let showInstructions = false;
 function setup() {
 createCanvas(600, 600);
 img = loadImage('clearburger.png');
@@ -41,6 +42,9 @@ displayNameEntry();
 } else if (page === 3) {
 // Game options page
 displayGameOptions();
+} else if (page === 4) {
+// Instructions for game options
+displayInstructions();
 }
 }
 function displayMainMenu() {
@@ -49,11 +53,9 @@ rect(30, 350, 50, 45); // P1 button
 textSize(45);
 fill('black');
 text("P1", 28, 350, 50, 45);
-// Italic style for "START TO PLAY"
 textStyle(ITALIC);
 fill('white');
 text("START TO PLAY", 100, 350, 400, 45);
-// Reset text style for other text
 textStyle(BOLD);
 image(img, 460, 360);
 img.resize(100, 100);
@@ -63,11 +65,9 @@ fill('white');
 rect(30, 450, 50, 45); // P2 button
 fill('black');
 text("P2", 27, 450, 50, 45);
-// Italic style for "INSTRUCTIONS"
 textStyle(ITALIC);
 fill('white');
 text("INSTRUCTIONS", 100, 450, 400, 45);
-// Reset text style for other text
 textStyle(NORMAL);
 textStyle(BOLD);
 textSize(70);
@@ -78,15 +78,59 @@ text("Cooking", 170, 120, 400, 70);
 fill('yellow');
 text("Challenge", 140, 190, 400, 70);
 }
+function displayInstructions() {
+background(0);
+fill('white');
+rect(10, 20, 100, 50);
+textSize(40);
+fill('black');
+text("Back", 10, 20, 10, 40);
+textSize(45);
+fill('white');
+text("INSTRUCTIONS:", 130, 20, 400, 45);
+stroke(400);
+textSize(30);
+fill('white');
+text("- Use WASD to move", 50, 80, 400, 45);
+stroke(400);
+textSize(30);
+fill('white');
+text("- Press [button] to interact", 50, 120, 450, 100);
+stroke(400);
+textSize(30);
+fill('white');
+text("- Complete food tasks in the given time", 50, 165, 550, 200);
+stroke(400);
+textSize(30);
+fill('white');
+text("- Completing them faster will reward bonus points", 50, 245, 550, 200);
+stroke(400);
+textSize(30);
+fill('white');
+text("- Complete the food tasks in order", 50, 330, 600, 200);
+stroke(300);
+textSize(30);
+fill('white');
+text("- You will grab, cook, and serve the food", 50, 370, 500, 200);
+stroke(300);
+textSize(30);
+fill('white');
+text("- Interact with the trashcan to throw away current food and restart", 50, 450, 550, 200);
+stroke(300);
+textSize(30);
+fill('white');
+text("- You will combine items to make orders (each level gets harder)", 50, 530, 550, 200);
+stroke(300);
+}
 function displayLevelSelection() {
 for (let i = 1; i <= 6; i++) {
 drawLevelSquare(i);
 }
 fill('black');
-rect(0, 0, 60, 60);
+rect(10, 10, 60, 60);
 textSize(26);
 fill('white');
-text("Back",0,0,60,60);
+text("Back", 10, 10, 60, 60);
 }
 function drawLevelSquare(level) {
 let squareSize = 150; // Size of the square
@@ -95,24 +139,12 @@ let startX = 150 + ((level - 1) % 2) * (squareSize + spacing); // X position
 let startY = 50 + Math.floor((level - 1) / 2) * (squareSize + spacing); // Y position
 // Set background color based on level
 switch (level) {
-case 1:
-fill('red');
-break;
-case 2:
-fill('green');
-break;
-case 3:
-fill('yellow');
-break;
-case 4:
-fill('orange');
-break;
-case 5:
-fill('red');
-break;
-case 6:
-fill('green');
-break;
+case 1: fill('red'); break;
+case 2: fill('green'); break;
+case 3: fill('yellow'); break;
+case 4: fill('orange'); break;
+case 5: fill('red'); break;
+case 6: fill('green'); break;
 }
 // Draw the square
 rect(startX, startY, squareSize, squareSize);
@@ -152,9 +184,21 @@ fill('white');
 text("Two Players", 300, 535); // Centered text
 }
 function mousePressed() {
-// Check if the mouse is over the "P1" button
+// Main menu buttons
 if (page === 0 && mouseX >= 30 && mouseX <= 80 && mouseY >= 350 && mouseY <= 395) {
 page = 1; // Go to level selection page
+}
+if (page === 0 && mouseX >= 30 && mouseX <= 80 && mouseY >= 450 && mouseY <= 495) {
+showInstructions = true;
+page = 4; // Show instructions when P2 is clicked
+}
+if (page === 1 && mouseX >= 30 && mouseX <= 80 && mouseY >= 20 && mouseY <= 65) {
+page = 0; // Go to level selection page
+}
+if (showInstructions && mouseX >= 30 && mouseX <= 80 && mouseY >= 20 && mouseY <=
+65) {
+showInstructions = false;
+page = 0; // Go back to game options page
 }
 // Check for level selection
 if (page === 1) {
@@ -169,9 +213,6 @@ if (mouseX >= startX && mouseX <= startX + squareSize && mouseY >= startY && mou
 selectedLevel = i;
 console.log("Level " + selectedLevel + " selected!");
 page = 2; // Go to name entry page
-}
-if (mouseX >= 00 && mouseX <= 60 && mouseY >= 00 && mouseY <= 60) {
-page=0; // Set the game state to not started
 }
 }
 }
