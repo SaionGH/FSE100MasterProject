@@ -13,6 +13,7 @@ function setup() {
 createCanvas(600, 600);
 img = loadImage('clearburger.png');
 img1 = loadImage('grill.png');
+grillSound = loadSound('food-sizzling-76022.mp3');
 // Create an input field for the player's name
 input = createInput('');
 input.position(200, 350); // Position the input field
@@ -186,17 +187,21 @@ text("Two Players", 300, 535); // Centered text
 function mousePressed() {
 // Main menu buttons
 if (page === 0 && mouseX >= 30 && mouseX <= 80 && mouseY >= 350 && mouseY <= 395) {
+grillSound.play();
 page = 1; // Go to level selection page
 }
 if (page === 0 && mouseX >= 30 && mouseX <= 80 && mouseY >= 450 && mouseY <= 495) {
+grillSound.play();
 showInstructions = true;
 page = 4; // Show instructions when P2 is clicked
 }
 if (page === 1 && mouseX >= 30 && mouseX <= 80 && mouseY >= 20 && mouseY <= 65) {
+grillSound.play();
 page = 0; // Go to level selection page
 }
 if (showInstructions && mouseX >= 30 && mouseX <= 80 && mouseY >= 20 && mouseY <=
 65) {
+grillSound.play();
 showInstructions = false;
 page = 0; // Go back to game options page
 }
@@ -210,6 +215,7 @@ let startY = 50 + Math.floor((i - 1) / 2) * (squareSize + spacing); // Y positio
 // Check if the mouse is over the square
 if (mouseX >= startX && mouseX <= startX + squareSize && mouseY >= startY && mouseY
 <= startY + squareSize) {
+grillSound.play();
 selectedLevel = i;
 console.log("Level " + selectedLevel + " selected!");
 page = 2; // Go to name entry page
@@ -219,10 +225,12 @@ page = 2; // Go to name entry page
 // Check for game option selection
 if (page === 3) {
 if (mouseX >= 200 && mouseX <= 400 && mouseY >= 450 && mouseY <= 500) {
+grillSound.play();
 console.log("One Player selected");
 // Proceed to one player game
 }
 if (mouseX >= 200 && mouseX <= 400 && mouseY >= 510 && mouseY <= 560) {
+grillSound.play();
 console.log("Two Players selected");
 // Proceed to two players game
 }
