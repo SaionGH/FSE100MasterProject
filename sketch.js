@@ -125,20 +125,20 @@ gameOver = true; // Set game over status when time runs out
 function displayGameOver() {
 background(0);
 fill('white');
-textSize(50);
+textSize(45);
 textAlign(CENTER);
-text("Time out!", 100, 120, 400, 70);
-text("Game", 100, 160, 400, 70);
-text("Over!", 100, 210, 400, 70);
+text("Time out!", width / 2, height / 2 - 174);
+text("Game", width / 2, height / 2 - 124);
+text("Over!", width / 2, height / 2 - 74);
 textSize(30);
-text("Your Score: " + playerScore, width / 2, height / 2 + 40);
-text("Click to View Scoreboard", width / 2, height / 2 + 70);
+text("Your Score: " + playerScore, width / 2, height / 2 + 20);
+text("Click to Return to Menu", width / 2, height / 2 + 70);
 gameOver = true;
 }
 function displayTimeoutScreen() {
 background(0);
 fill('white');
-textSize(50);
+textSize(30);
 textAlign(CENTER);
 text("TIME OUT!", width / 2, height / 2 - 20);
 textSize(30);
@@ -148,11 +148,11 @@ text("Click to View Scoreboard", width / 2, height / 2 + 70);
 function displayDashboard() {
 background(0);
 fill('white');
-textSize(40);
+textSize(30);
 textAlign(CENTER);
 text("Player Name: " + playerName, width / 2, height / 2 - 20);
 fill('white');
-textSize(50);
+textSize(30);
 text("Score: " + playerScore, width / 2, height / 2 + 20);
 fill('white');
 textSize(30);
@@ -161,7 +161,7 @@ text("Click to View Scoreboard", width / 2, height / 2 + 70);
 function displayScoreboard() {
 background(0);
 fill('white');
-textSize(40);
+textSize(45);
 textAlign(CENTER);
 text("Dashboard", width / 2, 50); // Title of the scoreboard
 let maxEntries = 4;
@@ -176,7 +176,7 @@ let rank = i + 1;
 fill(rank % 2 === 0 ? '#333333' : '#4d4d4d'); // Alternating gray colors for rows
 rect(width / 2 - 180, 100 + i * 60, 260, 50); // Widened rectangle for name and rank
 // Draw green rectangle for the score
-fill('#3b6e3b'); // Green color for score background
+fill('green'); // Green color for score background
 rect(width / 2 + 80, 100 + i * 60, 120, 50); // Widened rectangle for score
 // Display the rank and player name (empty if no name)
 fill('white');
@@ -301,7 +301,7 @@ function displayNameEntry() {
 fill(0, 0, 0); // Green background for input section
 rect(50, 250, 500, 200); // Background for input section
 fill('white');
-textSize(20);
+textSize(25);
 text("Enter your name:", 200, 280); // Prompt for name
 input.show(); // Show the input field
 submitButton.show(); // Show the submit button
@@ -313,7 +313,7 @@ rect(50, 250, 500, 200); // Background for game options
 fill('yellow');
 rect(200, 450, 200, 50); // Position and size of "One Player" button
 fill('black');
-textSize(32);
+textSize(30);
 textAlign(CENTER, CENTER);
 text("One Player", 300, 475); // Centered text
 // Draw "Two Players" button
@@ -422,13 +422,26 @@ page = 0;
 }
 }
 function submitName() {
-playerName = input.value(); // Get the player's name
-console.log("Player Name: " + playerName + ", Level: " + selectedLevel);
-input.hide(); // Hide input box after submission
-submitButton.hide(); // Hide submit button after submission
-// Add the player to the scoreboard with initial score
-scoreboard.push({ name: playerName, score: playerScore });
-saveData();
-// Go to the game options page
-page = 3; // Go to the Game Options page
+  playerName = input.value(); // Get the player's name
+  console.log("Player Name: " + playerName + ", Level: " + selectedLevel);
+
+  // Check if the player entered a valid name (not empty)
+  if (playerName.trim() !== "") {
+    // Add bonus points if the player entered a name
+    playerScore += 50; // You can adjust the bonus amount as needed
+    console.log("Bonus points awarded! New score: " + playerScore);
+  } else {
+    // No bonus points if the player left the name empty
+    console.log("No bonus points awarded. Player name is empty.");
+  }
+
+  input.hide(); // Hide input box after submission
+  submitButton.hide(); // Hide submit button after submission
+
+  // Add the player to the scoreboard with initial score
+  scoreboard.push({ name: playerName, score: playerScore });
+  saveData();
+
+  // Go to the game options page
+  page = 3; // Go to the Game Options page
 }
