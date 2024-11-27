@@ -70,12 +70,12 @@ clearDataButton.style('border-radius', '5px'); // Rounded corners
 // Add event handler for button press
 clearDataButton.mousePressed(handleClearData);
 loadData();
-img = loadImage('clearburger.png');
-img1 = loadImage('grill.png');
-grillSound = loadSound('food-sizzling-76022.mp3');
-img2 = loadImage('amirali-mirhashemian-sc5sTPMrVfk-unsplash-removebg-preview.png');
+img = loadImage('./public/images/clearburger.png');
+img1 = loadImage('./public/images/grill.png');
+grillSound = loadSound('./public/sounds/food-sizzling-76022.mp3');
+img2 = loadImage('./public/images/in_and_out_burger.png');
 img3 =
-loadImage('julian-rojas-dattwyler-LppAkC7s6u4-unsplash__1_-removebg-preview.png');
+loadImage('./public/images/pizza.png');
 // Create an input field for the player's name
 input = createInput('');
 input.position(200, 350); // Position the input field
