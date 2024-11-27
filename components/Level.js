@@ -84,85 +84,15 @@ class Level {
             );
             break;
           case "Bun":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Cheese":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "MeatPatty":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Lettuce":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Salmon":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Seaweed":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Rice":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Cucumber":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Tomato":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Noodles":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "MeatBalls":
             this.grid[i][j] = new FoodTile(
               i * this.tileWidth,

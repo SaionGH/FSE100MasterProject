@@ -60,6 +60,9 @@ class FoodTile {
             
         }
     rect(this.x, this.y, this.sz, this.sz);
+    fill("black")
+    stroke("white")
+    text(this.foodType, this.x+(this.sz/2), this.y+(this.sz/2));
     pop();
   }
 }
