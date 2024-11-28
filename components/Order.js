@@ -7,6 +7,8 @@ class Order {
     this.timer = customer.patience;
   }
 
+  function updateTimer() {
+  }
   // Decreases the timer each frame
   function displayTimer() {
   fill(255); // White text
