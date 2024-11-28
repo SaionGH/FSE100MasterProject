@@ -33,6 +33,11 @@ function loadData() {
   // Load selected level
   selectedLevel = parseInt(localStorage.getItem("selectedLevel")) || 0;
 }
+function dashboard() {
+  page = 7; // Navigate to the scoreboard page
+  dashboardButton.hide(); // Hide the dashboard button
+  console.log("Navigated to Dashboard (Page 7)");
+}
 function clearData() {
   // Clear all data from localStorage
   localStorage.removeItem("scoreboard");
@@ -68,11 +73,7 @@ function setup() {
   dashboardButton.style("padding", "10px");
   dashboardButton.style("border-radius", "5px");
   dashboardButton.hide(); // Initially hide the button
-  
-  // Add event handler for the button click
-  dashboardButton.mousePressed(() => {
-    page = 7; // Go to the dashboard page
-  });
+  dashboardButton.mousePressed(dashboard);
   let clearDataButton = createButton("Clear Data");
   clearDataButton.position(490, 10); // Adjust the position as needed
   // Style the button to make it red
