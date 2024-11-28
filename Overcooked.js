@@ -11,7 +11,7 @@ let page = 0; // Track which page is currently displayed
 let showInstructions = false;
 let gameOver = false; // Variable to track game over status
 let playerScore = 100; // Initialize player score
-let timer = 800; // Variable to track time remaining
+let timer; // Variable to track time remaining
 const gameDuration = 30; // Game duration in seconds
 let scoreboard = []; // Array to store player names and scores
 
@@ -247,15 +247,11 @@ function mousePressed() {
     if (mouseX >= 200 && mouseX <= 400 && mouseY >= 450 && mouseY <= 500) {
       grillSound.play();
       console.log("One Player selected");
-      gameStarted = true; // Start the game
-      timer = gameDuration; // Set the timer
       page = 1; // Go to dashboard page
     }
     if (mouseX >= 200 && mouseX <= 400 && mouseY >= 510 && mouseY <= 560) {
       grillSound.play();
       console.log("Two Players selected");
-      gameStarted = true; // Start the game
-      timer = gameDuration; // Set the timer
       page = 1; // Go to dashboard page
     }
   }
