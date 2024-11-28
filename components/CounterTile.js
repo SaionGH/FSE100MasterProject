@@ -6,6 +6,9 @@ class CounterTile {
     this.isWalkable = false;
     this.sz = sz;
   }
+  interact() {
+    return null;
+  }
 
   // Draws the counter tile
   draw() {

@@ -6,7 +6,9 @@ class Tile {
     this.sz = sz;
     this.isWalkable = true; // Indicates if the tile can be walked over
   }
-
+  interact() {
+    return null;
+  }
   // Draws the tile on the screen
   draw() {
     // TODO: Implement base drawing logic

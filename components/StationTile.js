@@ -8,7 +8,9 @@ class StationTile {
     this.isOccupied = false;
     this.sz = sz;
   }
-
+  interact() {
+    return null;
+  }
   // Processes an item placed on the station
   processItem(item) {
     // TODO: Implement item processing logic based on station type

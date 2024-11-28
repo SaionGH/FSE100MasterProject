@@ -125,6 +125,17 @@ class Level {
   }
 
   update() {
-    this.player.move();
+    this.player.move(this);
+  }
+
+  getTileAt(x, y) {
+    console.log("getTileAt", x, y)
+    const row = Math.floor(x / this.tileWidth);
+    const col = Math.floor(y / this.tileWidth);
+    console.log(row, col)
+    if (row >= 0 && row < this.rows && col >= 0 && col < this.cols) {
+      return this.grid[row][col];
+    }
+    return null; // Return null if the coordinates are out of bounds
   }
 }
