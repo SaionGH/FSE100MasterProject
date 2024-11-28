@@ -56,7 +56,7 @@ function handleClearData() {
   const userConfirmed = confirm("Are you sure you want to clear all data?");
   if (userConfirmed) {
     clearData();
-    dashboardButton.show;
+    dashboardButton.show();
   } // Call the function to clear data
 }
 function setup() {
