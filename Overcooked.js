@@ -111,7 +111,7 @@ function draw() {
   } else if (page === 4) {
     displayInstructions();
   } else if (page === 5) {
-    displayTimeoutScreen(); // Show the timeout screen
+    displayGameOver(); // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
