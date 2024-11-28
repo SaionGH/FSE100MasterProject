@@ -9,7 +9,5 @@ function displayGameOver() {
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
   text("Click to View Scoreboard", width / 2, height / 2 + 70);
-
-
   gameOver = true; // Set gameOver flag
 }
