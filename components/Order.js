@@ -8,16 +8,6 @@ class Order {
   }
 
   // Decreases the timer each frame
-function updateTimer() {
-  if (gameStarted && !gameOver) {
-    timer -= deltaTime / 1000; // Decrease the timer based on elapsed time
-    if (timer <= 0) {
-      timer = 0; // Ensure it doesn't go negative
-      gameOver = true; // End the game
-      page = 5; // Transition to the timeout screen
-    }
-  }
-}
   function displayTimer() {
   fill(255); // White text
   textSize(24); // Set text size
