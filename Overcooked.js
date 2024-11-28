@@ -120,9 +120,14 @@ function draw() {
     level.update();
     level.display();
     displayTimer();
-    updateTimer();
   }
   // Count down the timer if the game is in progress
+    if (gameStarted) {
+        timer -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
+        if (timer <= 0) {
+            gameOver = true; // Set game over status when time runs out
+        }
+    }
 }
 
 function checkGameOver() {
