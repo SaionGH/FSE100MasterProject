@@ -8,6 +8,6 @@ function displayGameOver() {
   text("Over!", width / 2, height / 2 - 74);
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
-  text("Click to View the Leaderboard", width / 2, height / 2 + 70);
+  dashboardButton.show();
   gameOver = true;
 }
