@@ -139,7 +139,7 @@ function checkGameOver() {
 function mousePressed() {
   // Check for game over
   if (gameOver) {
-    if (page === 5 || page === 6) {
+    if (gameOver && page === 5 || page === 6) {
       // Both game over and timeout screens
       // Add the player's score to the scoreboard if game is over
       if (playerName && playerScore >= 0) {
@@ -158,7 +158,7 @@ function mousePressed() {
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
   if (
-    (page === 6 || page === 5) &&
+    (page === 6 || gameOver && page === 5) &&
     mouseX >= width / 2 - 150 &&
     mouseX <= width / 2 + 150 &&
     mouseY >= height / 2 + 50 &&
