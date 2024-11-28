@@ -172,7 +172,7 @@ function mousePressed() {
     mouseY <= 395
   ) {
     grillSound.play();
-    page = 1; // Go to level selection page
+    page = 2; // Go to level selection page
   }
   if (
     page === 0 &&
@@ -249,14 +249,14 @@ function mousePressed() {
       console.log("One Player selected");
       gameStarted = true; // Start the game
       timer = gameDuration; // Set the timer
-      page = 6; // Go to dashboard page
+      page = 1; // Go to dashboard page
     }
     if (mouseX >= 200 && mouseX <= 400 && mouseY >= 510 && mouseY <= 560) {
       grillSound.play();
       console.log("Two Players selected");
       gameStarted = true; // Start the game
       timer = gameDuration; // Set the timer
-      page = 6; // Go to dashboard page
+      page = 1; // Go to dashboard page
     }
   }
   // Check if user wants to return to the main menu (scoreboard page)
