@@ -56,7 +56,6 @@ function handleClearData() {
   const userConfirmed = confirm("Are you sure you want to clear all data?");
   if (userConfirmed) {
     clearData();
-    dashboardButton.show();
   } // Call the function to clear data
 }
 function setup() {
@@ -112,7 +111,7 @@ function draw() {
   background(0);
   if (gameOver) {
     displayGameOver();
-    page = 7; // Skip other rendering when game is over
+    dashboardButton.show(); // Skip other rendering when game is over
   }
   if (page === 0) {
     displayMainMenu();
