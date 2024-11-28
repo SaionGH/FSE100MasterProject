@@ -8,6 +8,8 @@ function displayGameOver() {
   text("Over!", width / 2, height / 2 - 74);
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
+  text("Click to View Scoreboard", width / 2, height / 2 + 70);
+}
 
   // Create and display the "Click to View the Dashboard" button
   if (!dashboardButton) {
