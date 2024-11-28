@@ -8,9 +8,17 @@ class Order {
   }
 
   // Decreases the timer each frame
-  updateTimer() {
-    // TODO: Implement timer logic
+function updateTimer() {
+  if (gameStarted && !gameOver) {
+    timer -= deltaTime / 1000; // Decrease the timer based on elapsed time
+    if (timer <= 0) {
+      timer = 0; // Ensure it doesn't go negative
+      gameOver = true; // End the game
+      page = 5; // Transition to the timeout screen
+    }
   }
+}
+
 
   // Checks if the player's dish matches the recipe
   checkCompletion(playerDish) {
