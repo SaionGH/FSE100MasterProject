@@ -122,7 +122,7 @@ function draw() {
     displayTimer();
   }
   // Count down the timer if the game is in progress
-    if (gameStarted) {
+    if (gameStarted && page === 8) {
         timer -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
         if (timer <= 0) {
             gameOver = true; // Set game over status when time runs out
