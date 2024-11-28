@@ -33,11 +33,7 @@ function loadData() {
   // Load selected level
   selectedLevel = parseInt(localStorage.getItem("selectedLevel")) || 0;
 }
-function dashboard() {
-  page = 7; // Navigate to the 7th page (dashboard/scoreboard)
-  dashboardButton.hide(); // Hide the dashboard button
-  console.log("Navigated to Dashboard (Page 7)");
-}
+
 
 function clearData() {
   // Clear all data from localStorage
