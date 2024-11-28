@@ -240,6 +240,8 @@ function mousePressed() {
         grillSound.play();
         selectedLevel = i;
         console.log("Level " + selectedLevel + " selected!");
+        timer = gameDuration; // Reset timer to the game duration
+        gameStarted = true; 
         page = 8; // Go to name entry page
       }
     }
