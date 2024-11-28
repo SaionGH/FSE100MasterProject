@@ -98,7 +98,7 @@ function draw() {
   background(0);
   if (gameOver) {
     displayGameOver();
-    return; // Skip other rendering when game is over
+    page = 7; // Skip other rendering when game is over
   }
   if (page === 0) {
     displayMainMenu();
