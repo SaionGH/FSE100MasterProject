@@ -170,15 +170,16 @@ function mousePressed() {
       page = 7; // Go to the leaderboard page (page 7)
     }
   }
-  if (
-    (page === 6) &&
-    mouseX >= width / 2 - 150 &&
-    mouseX <= width / 2 + 150 &&
-    mouseY >= height / 2 + 50 &&
-    mouseY <= height / 2 + 100
-  ) {
-    page = 7; // Go to the scoreboard page
-  }
+if (
+  page === 6 || page === 5 &&
+  mouseX >= width / 2 - 150 &&
+  mouseX <= width / 2 + 150 &&
+  mouseY >= height / 2 + 50 &&
+  mouseY <= height / 2 + 100
+) {
+  page = 7; // Go to the scoreboard page
+}
+
   // Main menu buttons
   console.log({ page, mouseX, mouseY });
   if (
