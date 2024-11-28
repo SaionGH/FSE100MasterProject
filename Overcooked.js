@@ -11,7 +11,7 @@ let page = 0; // Track which page is currently displayed
 let showInstructions = false;
 let gameOver = false; // Variable to track game over status
 let playerScore = 100; // Initialize player score
-let timer; // Variable to track time remaining
+let time; // Variable to track time remaining
 const gameDuration = 30; // Game duration in seconds
 let scoreboard = []; // Array to store player names and scores
 
@@ -47,7 +47,7 @@ function clearData() {
   // Optionally reset other variables if necessary (like the game state, timer, etc.)
   gameStarted = false;
   gameOver = false;
-  timer = gameDuration;
+  time = gameDuration;
   page = 0; // Go back to the main menu after clearing data
   // Display a message to inform the user (optional)
   alert("Game data cleared successfully!");
@@ -122,8 +122,8 @@ function draw() {
   }
   // Count down the timer if the game is in progress
     if (gameStarted && page === 8) {
-        timer -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
-        if (timer <= 0) {
+        time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
+        if (time <= 0) {
             gameOver = true; // Set game over status when time runs out
         }
     }
@@ -154,7 +154,7 @@ function mousePressed() {
     playerScore = 100;
     selectedLevel = 0;
     page = 0;
-    timer = gameDuration;
+    time = gameDuration;
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
   if (
@@ -240,7 +240,7 @@ function mousePressed() {
         grillSound.play();
         selectedLevel = i;
         console.log("Level " + selectedLevel + " selected!");
-        timer = gameDuration; // Reset timer to the game duration
+        time = gameDuration; // Reset timer to the game duration
         gameStarted = true; 
         page = 8; // Go to name entry page
       }
