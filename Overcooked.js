@@ -56,11 +56,12 @@ function handleClearData() {
   const userConfirmed = confirm("Are you sure you want to clear all data?");
   if (userConfirmed) {
     clearData();
+    dashboardButton.show;
   } // Call the function to clear data
 }
 function setup() {
   createCanvas(600, 600);
-   dashboardButton = createButton("Click to View the Dashboard");
+  dashboardButton = createButton("Click to View the Leaderboard");
   dashboardButton.position(width / 2 - 150, height / 2 + 120); // Position the button under the score
   dashboardButton.style("background-color", "black");
   dashboardButton.style("color", "white");
@@ -71,7 +72,7 @@ function setup() {
   
   // Add event handler for the button click
   dashboardButton.mousePressed(() => {
-    page = 6; // Go to the dashboard page
+    page = 7; // Go to the dashboard page
   });
   let clearDataButton = createButton("Clear Data");
   clearDataButton.position(490, 10); // Adjust the position as needed
