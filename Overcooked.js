@@ -60,6 +60,19 @@ function handleClearData() {
 }
 function setup() {
   createCanvas(600, 600);
+   dashboardButton = createButton("Click to View the Dashboard");
+  dashboardButton.position(width / 2 - 150, height / 2 + 120); // Position the button under the score
+  dashboardButton.style("background-color", "black");
+  dashboardButton.style("color", "white");
+  dashboardButton.style("font-size", "20px");
+  dashboardButton.style("padding", "10px");
+  dashboardButton.style("border-radius", "5px");
+  dashboardButton.hide(); // Initially hide the button
+  
+  // Add event handler for the button click
+  dashboardButton.mousePressed(() => {
+    page = 6; // Go to the dashboard page
+  });
   let clearDataButton = createButton("Clear Data");
   clearDataButton.position(490, 10); // Adjust the position as needed
   // Style the button to make it red
