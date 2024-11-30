@@ -140,122 +140,165 @@ function checkGameOver() {
 }
 
 function mousePressed() {
-  // Handle Game Over (Page 5)
-  if (page === 5) {
-    // Save player's score to the scoreboard
-    if (playerName && playerScore >= 0 && !scoreSaved) {
-      scoreboard.push({ name: playerName, score: playerScore });
-      saveData(); // Save scoreboard data
-      scoreSaved = true; // Prevent duplicate saves
+  // Check for game over
+  if (gameOver) {
+    if (gameOver && page === 5 || page === 6) {
+      // Both game over and timeout screens
+      // Add the player's score to the scoreboard if game is over
+      if (playerName && playerScore >= 0) {
+        scoreboard.push({ name: playerName, score: playerScore });
+      }
+      saveData();
+      page = 7; // Go to scoreboard page
+      return; // Exit function after going to scoreboard
     }
-
-    // Check if "Click to View Scoreboard" was clicked
-    if (
-      mouseX >= width / 2 - 150 &&
-      mouseX <= width / 2 + 150 &&
-      mouseY >= height / 2 + 50 &&
-      mouseY <= height / 2 + 100
-    ) {
-      grillSound.play(); // Optional: Play sound effect
-      page = 7; // Navigate to the scoreboard page
-      return; // Exit early to avoid other resets
-    }
-
-    // Reset game state for main menu
+    // Other reset actions
     gameOver = false;
     playerScore = 100;
     selectedLevel = 0;
-    time = gameDuration; // Reset timer
-    page = 0; // Return to main menu
+    page = 0;
+    time = gameDuration;
+  }
+  // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
+  if (
+    page === 5 && // Scoreboard page
+    mouseX >= width / 2 - 75 &&
+    mouseX <= width / 2 + 75 &&
+    mouseY >= height - 100 &&
+    mouseY <= height - 50
+  ) {
+    grillSound.play(); // Optional: Play sound effect
+    page = 7; // Navigate to the dashboard page
     return;
   }
+if (
+  page === 6 || page === 5 &&
+  mouseX >= width / 2 - 150 &&
+  mouseX <= width / 2 + 150 &&
+  mouseY >= height / 2 + 50 &&
+  mouseY <= height / 2 + 100
+) {
+  page = 7; // Go to the scoreboard page
+}
 
-  // Handle Timeout (Page 6)
-  if (page === 6) {
-    // Check if "Click to View Scoreboard" was clicked
-    if (
-      mouseX >= width / 2 - 150 &&
-      mouseX <= width / 2 + 150 &&
-      mouseY >= height / 2 + 50 &&
-      mouseY <= height / 2 + 100
-    ) {
-      grillSound.play(); // Optional: Play sound effect
-      page = 7; // Navigate to the scoreboard page
-      return;
-    }
-
-    // Check if "Clear Data" was clicked
-    if (
-      mouseX >= width / 2 - 150 &&
-      mouseX <= width / 2 + 150 &&
-      mouseY >= height / 2 + 120 &&
-      mouseY <= height / 2 + 170
-    ) {
-      clearData(); // Clear saved scoreboard data
-      grillSound.play();
-      page = 0; // Return to main menu
-      return;
-    }
+  // Main menu buttons
+  console.log({ page, mouseX, mouseY });
+  if (
+    page === 0 &&
+    mouseX >= 30 &&
+    mouseX <= 80 &&
+    mouseY >= 350 &&
+    mouseY <= 395
+  ) {
+    grillSound.play();
+    page = 2; // Go to level selection page
   }
-
-  // Handle Scoreboard Page (Page 7)
-  if (page === 7) {
-    let buttonX = width / 2;
-    let buttonY = height - 75;
-    let buttonWidth = 300;
-    let buttonHeight = 50;
-
-    // Check if "Return to Menu" button is clicked
-    if (
-      mouseX >= buttonX - buttonWidth / 2 &&
-      mouseX <= buttonX + buttonWidth / 2 &&
-      mouseY >= buttonY - buttonHeight / 2 &&
-      mouseY <= buttonY + buttonHeight / 2
-    ) {
-      grillSound.play();
-      page = 0; // Return to main menu
-      return;
-    }
+  if (
+    page === 0 &&
+    mouseX >= 30 &&
+    mouseX <= 80 &&
+    mouseY >= 450 &&
+    mouseY <= 495
+  ) {
+    grillSound.play();
+    showInstructions = true;
+    page = 4; // Show instructions when P2 is clicked
   }
-
-  // Other Page Handling...
-
-  // Main menu buttons (Page 0)
-  if (page === 0) {
-    if (mouseX >= 30 && mouseX <= 80 && mouseY >= 350 && mouseY <= 395) {
-      grillSound.play();
-      page = 2; // Go to level selection page
-    }
-    if (mouseX >= 30 && mouseX <= 80 && mouseY >= 450 && mouseY <= 495) {
-      grillSound.play();
-      showInstructions = true;
-      page = 4; // Show instructions
-    }
+  if (
+    page === 1 &&
+    mouseX >= 30 &&
+    mouseX <= 80 &&
+    mouseY >= 20 &&
+    mouseY <= 65
+  ) {
+    grillSound.play();
+    page = 0; // Go to level selection page
   }
-
-  // Level Selection (Page 1)
+  if (
+    showInstructions &&
+    mouseX >= 30 &&
+    mouseX <= 80 &&
+    mouseY >= 20 &&
+    mouseY <= 65
+  ) {
+    grillSound.play();
+    showInstructions = false;
+    page = 0; // Go back to game options page
+  }
+  // Check for level selection
   if (page === 1) {
     for (let i = 1; i <= 6; i++) {
-      let squareSize = 150;
-      let spacing = 20;
-      let startX = 150 + ((i - 1) % 2) * (squareSize + spacing);
-      let startY = 50 + Math.floor((i - 1) / 2) * (squareSize + spacing);
-
+      let squareSize = 150; // Size of the square
+      let spacing = 20; // Spacing between squares
+      let startX = 150 + ((i - 1) % 2) * (squareSize + spacing); // X position
+      let startY = 50 + Math.floor((i - 1) / 2) * (squareSize + spacing); // Y position
+      // Check if the mouse is over the square
       if (
         mouseX >= startX &&
         mouseX <= startX + squareSize &&
         mouseY >= startY &&
         mouseY <= startY + squareSize
       ) {
-        level = new Level(window["map" + i]); // Dynamic map selection
+        if (i === 1) {
+          level = new Level(map1);
+        } else if (i === 2) {
+          level = new Level(map2);
+        } else if (i === 3) {
+          level = new Level(map3);
+        } else if (i === 4) {
+          level = new Level(map4);
+        } else if (i === 5) {
+          level = new Level(map5);
+        } else if (i === 6) {
+          level = new Level(map6);
+        }
         grillSound.play();
         selectedLevel = i;
         console.log("Level " + selectedLevel + " selected!");
-        time = gameDuration; // Reset timer
-        gameStarted = true;
+        time = gameDuration; // Reset timer to the game duration
+        gameStarted = true; 
         page = 8; // Go to name entry page
-        return;
       }
+    }
+  }
+  // Check for game option selection
+  if (page === 3) {
+    if (mouseX >= 200 && mouseX <= 400 && mouseY >= 450 && mouseY <= 500) {
+      grillSound.play();
+      console.log("One Player selected");
+      page = 1; // Go to dashboard page
+    }
+    if (mouseX >= 200 && mouseX <= 400 && mouseY >= 510 && mouseY <= 560) {
+      grillSound.play();
+      console.log("Two Players selected");
+      page = 1; // Go to dashboard page
+    }
+  }
+  // Check if user wants to return to the main menu (scoreboard page)
+  if (page === 7) {
+    let buttonX = width / 2;
+    let buttonY = height - 75;
+    let buttonWidth = 300;
+    let buttonHeight = 50;
+    // Check if the mouse is within the button bounds
+    if (
+      mouseX >= buttonX - buttonWidth / 2 &&
+      mouseX <= buttonX + buttonWidth / 2 &&
+      mouseY >= buttonY - buttonHeight / 2 &&
+      mouseY <= buttonY + buttonHeight / 2
+    ) {
+      grillSound.play(); // Optional: Play a sound when returning to menu
+      page = 0; // Return to main menu
+    }
+    if (
+      page === 6 &&
+      mouseX >= width / 2 - 150 &&
+      mouseX <= width / 2 + 150 &&
+      mouseY >= height / 2 + 120 &&
+      mouseY <= height / 2 + 170
+    ) {
+      clearData();
+      page = 0;
     }
   }
 }
