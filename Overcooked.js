@@ -160,15 +160,16 @@ function mousePressed() {
     time = gameDuration;
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-  if (gameOver && page === 5) {
-    const screenWidth = width;
-    const screenHeight = height;
-
-    // Check if the mouse click is anywhere on the game over screen
-    if (mouseX >= 0 && mouseX <= screenWidth && mouseY >= 0 && mouseY <= screenHeight) {
-      grillSound.play(); // Optional: Play a sound when the user clicks on the game over screen
-      page = 7; // Go to the leaderboard page (page 7)
-    }
+  if (
+    page === 5 && // Scoreboard page
+    mouseX >= width / 2 - 75 &&
+    mouseX <= width / 2 + 75 &&
+    mouseY >= height - 100 &&
+    mouseY <= height - 50
+  ) {
+    grillSound.play(); // Optional: Play sound effect
+    page = 7; // Navigate to the dashboard page
+    return;
   }
 if (
   page === 6 || page === 5 &&
