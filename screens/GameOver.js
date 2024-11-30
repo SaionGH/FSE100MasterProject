@@ -19,6 +19,6 @@ function displayGameOver() {
 
   fill(255);
   textSize(16);
-  text("View Dashboard", width / 2, buttonY + buttonHeight / 2 + 5);
+  text("Click to View Dashboard", width / 2, buttonY + buttonHeight / 2 + 5);
   gameOver = true; // Set gameOver flag
 }
