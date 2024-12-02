@@ -135,7 +135,6 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    return; // Go to timeout screen
   }
 }
 
