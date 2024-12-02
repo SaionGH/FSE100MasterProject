@@ -135,6 +135,7 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
+    page = 5; // Go to timeout screen
   }
 }
 
@@ -148,7 +149,8 @@ function mousePressed() {
         scoreboard.push({ name: playerName, score: playerScore });
       }
       saveData();
-      page = 7; // Go to scoreboard page// Exit function after going to scoreboard
+      page = 7; // Go to scoreboard page
+      return; // Exit function after going to scoreboard
     }
     // Other reset actions
     gameOver = false;
@@ -167,7 +169,17 @@ function mousePressed() {
   ) {
     grillSound.play(); // Optional: Play sound effect
     page = 7; // Navigate to the dashboard page
+    return;
   }
+if (
+  page === 6 || page === 5 &&
+  mouseX >= width / 2 - 150 &&
+  mouseX <= width / 2 + 150 &&
+  mouseY >= height / 2 + 50 &&
+  mouseY <= height / 2 + 100
+) {
+  page = 7; // Go to the scoreboard page
+}
 
   // Main menu buttons
   console.log({ page, mouseX, mouseY });
@@ -290,4 +302,3 @@ function mousePressed() {
     }
   }
 }
-
