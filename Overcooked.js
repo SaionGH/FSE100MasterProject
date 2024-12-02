@@ -148,8 +148,7 @@ function mousePressed() {
         scoreboard.push({ name: playerName, score: playerScore });
       }
       saveData();
-      page = 7; // Go to scoreboard page
-      return; // Exit function after going to scoreboard
+      page = 7; // Go to scoreboard page// Exit function after going to scoreboard
     }
     // Other reset actions
     gameOver = false;
@@ -168,7 +167,6 @@ function mousePressed() {
   ) {
     grillSound.play(); // Optional: Play sound effect
     page = 7; // Navigate to the dashboard page
-    return;
   }
 
   // Main menu buttons
