@@ -141,7 +141,7 @@ function checkGameOver() {
 function mousePressed() {
   // Check for game over
   if (gameOver) {
-    if (gameOver && page === 5 || page === 6) {
+    if (page === 5 || page === 6) {
       // Both game over and timeout screens
       // Add the player's score to the scoreboard if game is over
       if (playerName && playerScore >= 0) {
