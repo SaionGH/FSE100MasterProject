@@ -22,3 +22,4 @@
   // Go to the game options page
   page = 3; // Go to the Game Options page
 }
+*/
