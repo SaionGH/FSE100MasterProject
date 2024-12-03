@@ -311,7 +311,7 @@ page = 7; // Go to the scoreboard page
       mouseY <= height / 2 + 170
     ) {
       clearData();
-      page = 0;
+      page = 7;
     }
   }
 }
