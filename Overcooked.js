@@ -92,9 +92,6 @@ function setup() {
   viewScoreboardButton.mousePressed(handleViewScoreboard);
 
   // Store the button reference globally for toggling visibility later
-  window.viewScoreboardButton = viewScoreboardButton;
-
-  // Store the button reference globally for toggling visibility later
   loadData();
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
