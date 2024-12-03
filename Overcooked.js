@@ -184,10 +184,16 @@ if (playerName && playerScore >= 0) {
 scoreboard.push({ name: playerName, score: playerScore });
 }
 saveData();
-page = 7; // Go to scoreboard page// Exit function after going to scoreboard
+page = 7; // Go to scoreboard page
+return; // Exit function after going to scoreboard
 }
 // Other reset actions
-
+gameOver = false;
+playerScore = 100;
+selectedLevel = 0;
+page = 0;
+timer = gameDuration;
+}
 // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
 if ((page === 6 || page === 5) && mouseX >= width / 2 - 150 && mouseX <= width / 2 + 150
 && mouseY >= height / 2 + 50 && mouseY <= height / 2 + 100) {
