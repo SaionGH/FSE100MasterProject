@@ -10,5 +10,4 @@ function displayDashboard() {
   fill("white");
   textSize(30);
   text("Click to View Scoreboard", width / 2, height / 2 + 70);
-  gameOver = true;
 }
