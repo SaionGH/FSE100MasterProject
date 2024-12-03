@@ -1,4 +1,4 @@
-/*function submitName(submitButton) {
+function submitName(submitButton) {
   playerName = input.value(); // Get the player's name
   console.log("Player Name: " + playerName + ", Level: " + selectedLevel);
 
@@ -22,4 +22,4 @@
   // Go to the game options page
   page = 3; // Go to the Game Options page
 }
-*/
+
