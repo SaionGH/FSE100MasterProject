@@ -60,6 +60,12 @@ function handleClearData() {
     clearData();
   } // Call the function to clear data
 }
+function handleViewScoreboard() {
+  const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
+  if (confirmTransition) {
+    page = 6; // Navigate to the scoreboard
+  }
+}
 
 function setup() {
   createCanvas(600, 600);
@@ -74,7 +80,13 @@ function setup() {
   clearDataButton.style("font-size", "16px"); // Font size
   clearDataButton.style("border-radius", "5px"); // Rounded corners
   // Add event handler for button press
-
+  let viewScoreboardButton = createButton("View Scoreboard");
+  viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
+  viewScoreboardButton.style("background-color", "blue");
+  viewScoreboardButton.style("color", "white");
+  viewScoreboardButton.style("font-size", "16px");
+  viewScoreboardButton.style("padding", "10px");
+  viewScoreboardButton.style("border-radius", "5px");
 
   // Store the button reference globally for toggling visibility later
   loadData();
