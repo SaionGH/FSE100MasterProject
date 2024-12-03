@@ -169,15 +169,7 @@ if (page === 5) { // Check if the user is on the timeout screen
     grillSound.play(); // Optional sound effect
     page = 7; // Navigate to the scoreboard
     return; // Exit function to avoid other conditions running
-  }
-    // Other reset actions
-    gameOver = false;
-    playerScore = 100;
-    selectedLevel = 0;
-    page = 0;
-    time = gameDuration;
-  }
-  // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
+  }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
   if (
     page === 5 && // Scoreboard page
     mouseX >= width / 2 - 75 &&
@@ -189,6 +181,14 @@ if (page === 5) { // Check if the user is on the timeout screen
     page = 7; // Navigate to the dashboard page
     return;
   }
+    // Other reset actions
+    gameOver = false;
+    playerScore = 100;
+    selectedLevel = 0;
+    page = 0;
+    time = gameDuration;
+  }
+  
   // Main menu buttons
   console.log({ page, mouseX, mouseY });
   if (
