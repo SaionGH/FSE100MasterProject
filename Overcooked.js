@@ -118,7 +118,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    displayGameOver();
+    page = 5;
   }
   if (page === 0) {
     displayMainMenu();
@@ -131,7 +131,7 @@ function draw() {
   } else if (page === 4) {
     displayInstructions();
   } else if (page === 5) {
-    displayGameOver();
+    displayGameOver(); // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
@@ -141,42 +141,52 @@ function draw() {
     level.display();
   }
   // Count down the timer if the game is in progress
-if (gameStarted && page === 8 && !gameOver) {
-    time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
-    if (time <= 0) {
-        checkGameOver(); // Trigger game over when time runs out
+    if (gameStarted && page === 8) {
+        time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
+        if (time <= 0) {
+            gameOver = true; // Set game over status when time runs out
+        }
     }
-}
 }
 
 function checkGameOver() {
-    if (playerScore <= 0) {
-        gameOver = true; // Set game over status
-      displayGameOver();
-        page = 5; // Go to the Game Over screen
-    }
+  if (playerScore <= 0) {
+    gameOver = true; // Set game over status
+    return; // Go to timeout screen
+  }
 }
-
 
 function mousePressed() {
   // Check for game over
-  if (page === 5) { // Check if the user is on the timeout screen
-    // Add the player's score to the scoreboard if the game is over
-    if (gameOver) {
-      if (playerName && playerScore >= 0) {
-        scoreboard.push({ name: playerName, score: playerScore });
-      }
-      saveData(); // Save data before transitioning
-      page = 7; // Navigate to the scoreboard
-      return; // Exit function to avoid other conditions running
+if (page === 5) { // Check if the user is on the timeout screen
+  // Add the player's score to the scoreboard if the game is over
+  if (gameOver) {
+    if (playerName && playerScore >= 0) {
+      scoreboard.push({ name: playerName, score: playerScore });
     }
-    // Reset other game states after going to scoreboard
-   gameOver = false;
-playerScore = 100;
-selectedLevel = 0;
-page = 0;
-timer = gameDuration;
-
+    saveData(); // Save data before transitioning
+    grillSound.play(); // Optional sound effect
+    page = 7; // Navigate to the scoreboard
+    return; // Exit function to avoid other conditions running
+  }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
+  if (
+    page === 5 && // Scoreboard page
+    mouseX >= width / 2 - 75 &&
+    mouseX <= width / 2 + 75 &&
+    mouseY >= height - 100 &&
+    mouseY <= height - 50
+  ) {
+    grillSound.play(); // Optional: Play sound effect
+    page = 7; 
+    console.log("hello");// Navigate to the dashboard page
+    return;
+  }
+    // Other reset actions
+    gameOver = false;
+    playerScore = 100;
+    selectedLevel = 0;
+    page = 0;
+    time = gameDuration;
   }
   
   // Main menu buttons
