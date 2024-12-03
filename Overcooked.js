@@ -132,17 +132,6 @@ function draw() {
     displayInstructions();
   } else if (page === 5) {
     displayGameOver(); // Show the timeout screen
-            if (gameOver) {
-            if (playerName && playerScore >= 0) {
-                scoreboard.push({ name: playerName, score: playerScore });
-            }
-            saveData(); // Save data before transitioning
-
-            // Draw the "View Scoreboard" button
-            drawButton(width / 2 - 100, height - 150, 200, 50, "View Scoreboard", () => {
-                grillSound.play();
-                page = 7; // Navigate to the scoreboard
-            });
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
@@ -159,26 +148,7 @@ function draw() {
         }
     }
 }
-function drawButton(x, y, width, height, label, action) {
-    fill(255, 0, 0);
-    rect(x, y, width, height, 10); // Draw button rectangle
-    fill(255);
-    textAlign(CENTER, CENTER);
-    textSize(20);
-    text(label, x + width / 2, y + height / 2); // Draw button text
 
-    // Check if the mouse is inside the button bounds and handle clicks
-    if (mouseIsPressed) {
-        if (
-            mouseX >= x &&
-            mouseX <= x + width &&
-            mouseY >= y &&
-            mouseY <= y + height
-        ) {
-            action(); // Execute the button's callback
-        }
-    }
-}
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
