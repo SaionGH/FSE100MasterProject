@@ -28,4 +28,4 @@
   text("Cooking", 170, 120, 400, 70);
   fill("yellow");
   text("Challenge", 140, 190, 400, 70);
-}
+}*/
