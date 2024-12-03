@@ -118,7 +118,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    page = 5;
+    displayGameOver();
   }
   if (page === 0) {
     displayMainMenu();
@@ -152,6 +152,7 @@ if (gameStarted && page === 8 && !gameOver) {
 function checkGameOver() {
     if (playerScore <= 0) {
         gameOver = true; // Set game over status
+      displayGameOver();
         page = 5; // Go to the Game Over screen
     }
 }
