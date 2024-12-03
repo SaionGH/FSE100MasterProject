@@ -152,7 +152,7 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    page = 5; // Go to timeout screen
+    return; // Go to timeout screen
   }
 }
 
