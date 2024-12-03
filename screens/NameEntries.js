@@ -6,4 +6,4 @@
   text("Enter your name:", 200, 280); // Prompt for name
   input.show(); // Show the input field
   submitButton.show(); // Show the submit button
-}
+}*/
