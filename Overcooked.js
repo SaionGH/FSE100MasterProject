@@ -133,12 +133,6 @@ function draw() {
     displayInstructions();
   } else if (page === 5) {
     displayGameOver();
-            fill(255, 0, 0);
-        rect(width / 2 - 100, height - 100, 200, 50, 10); // Button rectangle
-        fill(255);
-        textAlign(CENTER, CENTER);
-        textSize(20);
-        text("View Dashboard", width / 2, height - 75); // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
@@ -163,38 +157,30 @@ function checkGameOver() {
     }
 }
 
+
 function mousePressed() {
   // Check for game over
-if (page === 5) { // Check if the user is on the timeout screen
-  // Add the player's score to the scoreboard if the game is over
-  if (gameOver) {
-    if (playerName && playerScore >= 0) {
-      scoreboard.push({ name: playerName, score: playerScore });
+  if (page === 5) { // Check if the user is on the timeout screen
+    // Add the player's score to the scoreboard if the game is over
+    if (gameOver) {
+      if (playerName && playerScore >= 0) {
+        scoreboard.push({ name: playerName, score: playerScore });
+      }
+      saveData(); // Save data before transitioning
+      page = 7; // Navigate to the scoreboard
+      return; // Exit function to avoid other conditions running
     }
-    saveData(); // Save data before transitioning
-    page = 7; // Navigate to the scoreboard
-    return; // Exit function to avoid other conditions running
-  }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-       let buttonX = width / 2 - 100;
-        let buttonY = height - 100;
-        let buttonWidth = 200;
-        let buttonHeight = 50;
 
-        // Check if the mouse is inside the button bounds
-        if (
-            mouseX >= buttonX &&
-            mouseX <= buttonX + buttonWidth &&
-            mouseY >= buttonY &&
-            mouseY <= buttonY + buttonHeight
-        ) {
-            grillSound.play(); // Optional: Play a sound effect
-            page = 7; // Navigate to the scoreboard
-        }
-    // Other reset actions
+    // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
+    if (mouseX >= width / 2 - 150 && mouseX <= width / 2 + 150
+      && mouseY >= height / 2 + 50 && mouseY <= height / 2 + 100) {
+      page = 7; // Go to the scoreboard page
+    }
+    
+    // Reset other game states after going to scoreboard
     gameOver = false;
-    playerScore = 100;
+    playerScore = 100; // Default score for new game or reset
     selectedLevel = 0;
-    page = 0;
     time = gameDuration;
   }
   
