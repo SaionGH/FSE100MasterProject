@@ -7,6 +7,15 @@ class Order {
     this.timer = customer.patience;
   }
 
+  function updateTimer() {
+  }
+  // Decreases the timer each frame
+  function displayTimer() {
+  fill(255); // White text
+  textSize(24); // Set text size
+  textAlign(RIGHT, BOTTOM); // Align text to bottom right
+  text(`Time: ${Math.ceil(timer)}s`, width - 20, height - 20); // Position near bottom-right corner
+}
 
   // Checks if the player's dish matches the recipe
   checkCompletion(playerDish) {
