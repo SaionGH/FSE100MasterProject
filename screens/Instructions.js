@@ -1,4 +1,4 @@
-/*function displayInstructions() {
+function displayInstructions() {
   background(0);
   fill("white");
   rect(10, 20, 100, 50);
@@ -30,4 +30,4 @@
     550,
     200
   );
-}*/
+}
