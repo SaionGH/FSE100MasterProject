@@ -1,4 +1,4 @@
-function displayGameOver() {
+/*function displayGameOver() {
   background(0);
   fill("white");
   textSize(45);
