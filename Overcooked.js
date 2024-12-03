@@ -74,6 +74,23 @@ function setup() {
   clearDataButton.style("border-radius", "5px"); // Rounded corners
   // Add event handler for button press
   clearDataButton.mousePressed(handleClearData);
+  let viewScoreboardButton = createButton("View Scoreboard");
+  viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
+  viewScoreboardButton.style("background-color", "blue");
+  viewScoreboardButton.style("color", "white");
+  viewScoreboardButton.style("font-size", "16px");
+  viewScoreboardButton.style("padding", "10px");
+  viewScoreboardButton.style("border-radius", "5px");
+  viewScoreboardButton.hide(); // Initially hide the button
+
+  // Set up the button to transition to the scoreboard page when pressed
+  viewScoreboardButton.mousePressed(() => {
+    grillSound.play(); // Optional sound effect
+    page = 7; // Navigate to the scoreboard
+  });
+
+  // Store the button reference globally for toggling visibility later
+  window.viewScoreboardButton = viewScoreboardButton;
   loadData();
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
@@ -117,6 +134,11 @@ function setup() {
 }
 function draw() {
   background(0);
+  if (page === 5) {
+    window.viewScoreboardButton.show(); // Show button on Game Over page
+  } else {
+    window.viewScoreboardButton.hide(); // Hide button on other pages
+  }
   if (gameOver) {
     page = 5;
   }
