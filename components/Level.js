@@ -84,85 +84,15 @@ class Level {
             );
             break;
           case "Bun":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Cheese":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "MeatPatty":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Lettuce":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Salmon":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Seaweed":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Rice":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Cucumber":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Tomato":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "Noodles":
-            this.grid[i][j] = new FoodTile(
-              i * this.tileWidth,
-              j * this.tileWidth,
-              this.tileWidth,
-              tileCode
-            );
-            break;
           case "MeatBalls":
             this.grid[i][j] = new FoodTile(
               i * this.tileWidth,
@@ -195,6 +125,17 @@ class Level {
   }
 
   update() {
-    this.player.move();
+    this.player.move(this);
+  }
+
+  getTileAt(x, y) {
+    console.log("getTileAt", x, y)
+    const row = Math.floor(x / this.tileWidth);
+    const col = Math.floor(y / this.tileWidth);
+    console.log(row, col)
+    if (row >= 0 && row < this.rows && col >= 0 && col < this.cols) {
+      return this.grid[row][col];
+    }
+    return null; // Return null if the coordinates are out of bounds
   }
 }

@@ -7,8 +7,19 @@ class StationTile {
     this.isWalkable = false;
     this.isOccupied = false;
     this.sz = sz;
+    
+    this.tileColors = {
+      cooking: '#545451',
+      cutting: '#D2B48C'
+    };
+    this.tileImages = {
+      cooking: frying_pan,
+      cutting: cutting_board
+    };
   }
-
+  interact() {
+    return null;
+  }
   // Processes an item placed on the station
   processItem(item) {
     // TODO: Implement item processing logic based on station type
@@ -27,6 +38,8 @@ class StationTile {
     }
       
     rect( this.x , this.y , this.sz, this.sz);
+    image(this.tileImages[this.stationType], this.x, this.y, this.sz, this.sz);
+
         pop();
   }
 }

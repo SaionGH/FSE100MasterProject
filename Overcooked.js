@@ -80,6 +80,24 @@ function setup() {
   grillSound = loadSound("sounds/food-sizzling-76022.mp3");
   img2 = loadImage("images/in_and_out_burger.png");
   img3 = loadImage("images/pizza.png");
+  buns_image = loadImage("images/bun.png");
+  cheese_image = loadImage("images/cheese.png");
+  meatpatty_image = loadImage("images/meatpatty.png");
+  lettuce_image = loadImage("images/lettuce.png");
+  salmon_image = loadImage("images/salmon.png");
+  seaweed_image = loadImage("images/seaweed.png");
+  rice_image = loadImage("images/rice.png");
+  cucumber_image = loadImage("images/cucumber.png");
+  tomato_image = loadImage("images/tomato.png");
+  noodles_image = loadImage("images/noodles.png");
+  meatballs_image = loadImage("images/meatball.png");
+  juice_machine = loadImage("images/juicemachine.png");
+  cup_image = loadImage("images/cup.png");
+  cutting_board = loadImage("images/Cuttingboard.png");
+  trash_can = loadImage("images/Trashcan.png");
+  frying_pan = loadImage("images/fryingPan.png");
+  plates_image = loadImage("images/plate.png");
+
   // Create an input field for the player's name
   input = createInput("");
   input.position(200, 350); // Position the input field

@@ -6,13 +6,17 @@ class CupDispensorTile {
     this.isWalkable = false;
     this.sz = sz;
   }
-
+  interact() {
+    return null;
+  }
   // Draws the counter tile
   draw() {
     // TODO: Implement counter tile drawing
     push();
     fill('#008080');
     rect( this.x , this.y , this.sz, this.sz);
+    image(cup_image, this.x, this.y, this.sz, this.sz);
+
     pop();
   }
 }

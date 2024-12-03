@@ -6,6 +6,9 @@ class FloorTile {
     this.isWalkable = true;
     this.sz = sz;
   }
+  interact() {
+    return null;
+  }
 
   // Draws the floor tile
   draw() {

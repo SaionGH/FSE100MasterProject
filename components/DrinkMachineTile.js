@@ -6,13 +6,16 @@ class DrinkMachineTile {
     this.isWalkable = false;
     this.sz = sz;
   }
-
+  interact() {
+    return null;
+  }
   // Draws the counter tile
   draw() {
     // TODO: Implement counter tile drawing
     push();
     fill('#643B9F');
     rect( this.x , this.y , this.sz, this.sz);
+    image(juice_machine, this.x, this.y, this.sz, this.sz);
     pop();
   }
 }
