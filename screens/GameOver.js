@@ -9,5 +9,6 @@ function displayGameOver() {
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
   text("Click to View Leaderboard", width / 2, height / 2 + 70);
+  window.viewScoreboardButton.show(); 
   gameOver = true; // Set gameOver flag
 }
