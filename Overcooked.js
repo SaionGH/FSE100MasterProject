@@ -165,7 +165,6 @@ if (page === 5) { // Check if the user is on the timeout screen
       scoreboard.push({ name: playerName, score: playerScore });
     }
     saveData(); // Save data before transitioning
-    grillSound.play(); // Optional sound effect
     page = 7; // Navigate to the scoreboard
     return; // Exit function to avoid other conditions running
   }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
