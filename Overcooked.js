@@ -159,18 +159,13 @@ if (page === 5) { // Check if the user is on the timeout screen
     time = gameDuration;
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-  if (
-    page === 5 && // Scoreboard page
-    mouseX >= width / 2 - 75 &&
-    mouseX <= width / 2 + 75 &&
-    mouseY >= height - 100 &&
-    mouseY <= height - 50
-  ) {
-    grillSound.play(); // Optional: Play sound effect
-    page = 7; // Navigate to the dashboard page
-    return;
-  }
   // Main menu buttons
+    if (gameOver && mouseX >= width / 2 - 100 && mouseX <= width / 2 + 100 && mouseY >= height / 2 && mouseY <= height / 2 + 50) {
+    grillSound.play(); // Optional: Play sound effect
+    page = 7; // Navigate to Dashboard page
+    gameOver = false; // Reset gameOver to avoid triggering this again
+    return;
+
   console.log({ page, mouseX, mouseY });
   if (
     page === 0 &&
