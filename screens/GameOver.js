@@ -8,6 +8,6 @@ function displayGameOver() {
   text("Over!", width / 2, height / 2 - 74);
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
-  text("Click to View Dashboard", width / 2, height / 2 + 25);
-  gameOver = true; // Set gameOver flag
+  text("Click to Return to Menu", width / 2, height / 2 + 70);
+  gameOver = true;
 }

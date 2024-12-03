@@ -1,29 +1,38 @@
 // Order Class
-class Order {
+ class Order {
   constructor(recipe, customer) {
     this.recipe = recipe;
     this.customer = customer;
     this.isCompleted = false;
     this.timer = customer.patience;
   }
-
-  function updateTimer() {
+  
+  updateTimer(deltaTime, gameStarted, gameOver) {
+    if (gameStarted && !gameOver) {
+      this.timer -= deltaTime / 1000; // Decrease the timer based on elapsed time
+      if (this.timer <= 0) {
+        this.timer = 0; // Ensure it doesn't go below 0
+        this.isCompleted = true; // Mark order as failed or expired
+      }
+    }
   }
+
   // Decreases the timer each frame
-  function displayTimer() {
-  fill(255); // White text
-  textSize(24); // Set text size
-  textAlign(RIGHT, BOTTOM); // Align text to bottom right
-  text(`Time: ${Math.ceil(timer)}s`, width - 20, height - 20); // Position near bottom-right corner
-}
-
-  // Checks if the player's dish matches the recipe
-  checkCompletion(playerDish) {
-    // TODO: Implement order completion check
+ displayTimer(x, y) {
+    fill(0); // White text
+    console.log("Two Players selected");
+    textSize(16); // Set text size
+    textAlign(LEFT, CENTER); // Align text to the left
+    text(`Time: ${Math.ceil(this.timer)}s`, x, y); // Display the remaining time
   }
+  
+  
 
-  // Draws the order on the screen
   drawOrder(x, y) {
-    // TODO: Implement drawing logic
+    console.log(`Drawing order at (${x}, ${y}) for recipe: ${this.recipe}`);
+    fill(0);
+    text(`Order: ${this.recipe}`, x + 10, y + 25); // Draw order name
   }
+
 }
+window.Order = Order;
