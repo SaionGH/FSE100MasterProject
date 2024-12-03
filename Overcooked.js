@@ -3,7 +3,7 @@ let img1;
 let gameStarted = false; // Variable to track if the game has started
 let selectedLevel = 0; // Variable to track the selected level
 let level = null;
-let playerName = ""; // Variable to store the player's name
+let playerName = ""; // Variable to store the player's nam
 let input; // Input element for the player's name
 let submitButton; // Button element for submission
 let showGameOptions = false; // Variable to track if game options should be shown
