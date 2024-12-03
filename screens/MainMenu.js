@@ -1,4 +1,4 @@
-function displayMainMenu() {
+/*function displayMainMenu() {
   fill("white");
   rect(30, 350, 50, 45); // P1 button
   textSize(45);
