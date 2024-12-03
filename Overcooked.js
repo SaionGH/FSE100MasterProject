@@ -97,6 +97,7 @@ function setup() {
   trash_can = loadImage("images/Trashcan.png");
   frying_pan = loadImage("images/fryingPan.png");
   plates_image = loadImage("images/plate.png");
+  chef_hat =  loadImage("images/chefHat.png");
 
   // Create an input field for the player's name
   input = createInput("");
@@ -118,8 +119,8 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    displayGameOver();
-    dashboardButton.show(); // Skip other rendering when game is over
+    page = 5;
+
   }
   if (page === 0) {
     displayMainMenu();
