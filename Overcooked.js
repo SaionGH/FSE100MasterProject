@@ -1,3 +1,4 @@
+let img;
 let img1;
 let gameStarted = false; // Variable to track if the game has started
 let selectedLevel = 0; // Variable to track the selected level
@@ -134,7 +135,7 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    page = 7; // Go to timeout screen
+    page = 5; // Go to timeout screen
   }
 }
 
