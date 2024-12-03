@@ -84,9 +84,12 @@ function setup() {
   viewScoreboardButton.hide(); // Initially hide the button
 
   // Set up the button to transition to the scoreboard page when pressed
-  viewScoreboardButton.mousePressed(() => {
-    grillSound.play(); // Optional sound effect
-    page = 7; // Navigate to the scoreboard
+   viewScoreboardButton.mousePressed(() => {
+    const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
+    if (confirmTransition) {
+      grillSound.play(); // Optional sound effect
+      page = 7; // Navigate to the scoreboard
+    }
   });
 
   // Store the button reference globally for toggling visibility later
