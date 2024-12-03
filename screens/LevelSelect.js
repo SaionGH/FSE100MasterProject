@@ -1,4 +1,4 @@
-function displayLevelSelection() {
+/*function displayLevelSelection() {
   for (let i = 1; i <= 6; i++) {
     drawLevelSquare(i);
   }
