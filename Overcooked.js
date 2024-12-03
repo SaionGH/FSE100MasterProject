@@ -171,10 +171,12 @@ function mousePressed() {
       return; // Exit function to avoid other conditions running
     }
     // Reset other game states after going to scoreboard
-    gameOver = false;
-    playerScore = 100; // Default score for new game or reset
-    selectedLevel = 0;
-    time = gameDuration;
+   gameOver = false;
+playerScore = 100;
+selectedLevel = 0;
+page = 0;
+timer = gameDuration;
+
   }
   
   // Main menu buttons
