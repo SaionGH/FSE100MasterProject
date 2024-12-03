@@ -137,7 +137,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    page = 5;
+    page = 7;
   }
   if (page === 0) {
     displayMainMenu();
@@ -172,33 +172,19 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    return; // Go to timeout screen
+    page = 7; // Go directly to the scoreboard
+    return;
   }
 }
 
 function mousePressed() {
   // Check for game over
-if (page === 5) { // Check if the user is on the timeout screen
-  // Add the player's score to the scoreboard if the game is over
-  if (gameOver) {
+  if (gameOver && page === 7) { // Check if game over and in the scoreboard
     if (playerName && playerScore >= 0) {
       scoreboard.push({ name: playerName, score: playerScore });
     }
     saveData(); // Save data before transitioning
     grillSound.play(); // Optional sound effect
-    page = 7; // Navigate to the scoreboard
-    return; // Exit function to avoid other conditions running
-  }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-  if (
-    page === 5 && // Scoreboard page
-    mouseX >= width / 2 - 75 &&
-    mouseX <= width / 2 + 75 &&
-    mouseY >= height - 100 &&
-    mouseY <= height - 50
-  ) {
-    grillSound.play(); // Optional: Play sound effect
-    page = 7; 
-    console.log("hello");// Navigate to the dashboard page
     return;
   }
     // Other reset actions
