@@ -1,4 +1,4 @@
-function displayGameOptions() {
+/*function displayGameOptions() {
   fill(0); // Black background for options
   rect(50, 250, 500, 200); // Background for game options
   // Draw "One Player" button
