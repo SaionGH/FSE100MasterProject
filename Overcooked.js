@@ -118,7 +118,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    displayGameOver();
+    page === 5;
   }
   if (page === 0) {
     displayMainMenu();
