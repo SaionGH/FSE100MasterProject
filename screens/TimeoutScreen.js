@@ -1,4 +1,4 @@
-function displayTimeoutScreen() {
+/*function displayTimeoutScreen() {
   background(0);
   fill("white");
   textSize(30);
