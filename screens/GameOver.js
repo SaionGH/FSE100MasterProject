@@ -1,4 +1,4 @@
-/*function displayGameOver() {
+function displayGameOver() {
   background(0);
   fill("white");
   textSize(45);
@@ -10,4 +10,4 @@
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
   text("Click to View Leaderboard", width / 2, height / 2 + 70); //
      gameOver = true;
-}*/
+}
