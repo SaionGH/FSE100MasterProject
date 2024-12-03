@@ -1,4 +1,4 @@
-/*function displayGameOptions() {
+function displayGameOptions() {
   fill(0); // Black background for options
   rect(50, 250, 500, 200); // Background for game options
   // Draw "One Player" button
@@ -13,4 +13,4 @@
   rect(200, 510, 200, 50); // Position and size of "Two Players" button
   fill("white");
   text("Two Players", 300, 535); // Centered text
-}*/
+}
