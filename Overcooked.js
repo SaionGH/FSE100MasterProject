@@ -184,8 +184,7 @@ if (playerName && playerScore >= 0) {
 scoreboard.push({ name: playerName, score: playerScore });
 }
 saveData();
-page = 7; // Go to scoreboard page
-return; // Exit function after going to scoreboard
+page = 7; // Go to scoreboard page// Exit function after going to scoreboard
 }
 // Other reset actions
 gameOver = false;
