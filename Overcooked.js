@@ -14,7 +14,6 @@ let playerScore = 100; // Initialize player score
 let time; // Variable to track time remaining
 const gameDuration = 30; // Game duration in seconds
 let scoreboard = []; // Array to store player names and scores
-let transitionTimeout = null;
 
 function saveData() {
   localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
