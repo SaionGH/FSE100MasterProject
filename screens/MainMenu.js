@@ -1,4 +1,4 @@
-/*function displayMainMenu() {
+function displayMainMenu() {
   fill("white");
   rect(30, 350, 50, 45); // P1 button
   textSize(45);
@@ -28,4 +28,4 @@
   text("Cooking", 170, 120, 400, 70);
   fill("yellow");
   text("Challenge", 140, 190, 400, 70);
-}*/
+}
