@@ -88,7 +88,6 @@ function setup() {
   viewScoreboardButton.style("padding", "10px");
   viewScoreboardButton.style("border-radius", "5px");
   viewScoreboardButton.mousePressed(handleViewScoreboard);
-   window.viewScoreboardButton = viewScoreboardButton;
 
   // Store the button reference globally for toggling visibility later
   loadData();
