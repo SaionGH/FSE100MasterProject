@@ -134,11 +134,6 @@ function setup() {
 }
 function draw() {
   background(0);
-  if (page === 5) {
-    window.viewScoreboardButton.show(); // Show button on Game Over page
-  } else {
-    window.viewScoreboardButton.hide(); // Hide button on other pages
-  }
   if (gameOver) {
     page = 5;
   }
@@ -153,7 +148,8 @@ function draw() {
   } else if (page === 4) {
     displayInstructions();
   } else if (page === 5) {
-    displayGameOver(); // Show the timeout screen
+    displayGameOver();
+    window.viewScoreboardButton.show(); // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
