@@ -160,7 +160,7 @@ if (page === 5) { // Check if the user is on the timeout screen
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
   // Main menu buttons
-    if (gameOver && mouseX >= width / 2 - 100 && mouseX <= width / 2 + 100 && mouseY >= height / 2 && mouseY <= height / 2 + 50) {
+    if (page === 5 && mouseX >= width / 2 - 100 && mouseX <= width / 2 + 100 && mouseY >= height / 2 && mouseY <= height / 2 + 50) {
     grillSound.play(); // Optional: Play sound effect
     page = 7; // Navigate to Dashboard page
     gameOver = false; // Reset gameOver to avoid triggering this again
