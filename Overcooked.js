@@ -141,17 +141,17 @@ function checkGameOver() {
 
 function mousePressed() {
   // Check for game over
+if (page === 5) { // Check if the user is on the timeout screen
+  // Add the player's score to the scoreboard if the game is over
   if (gameOver) {
-    if (gameOver && page === 5 || page === 6) {
-      // Both game over and timeout screens
-      // Add the player's score to the scoreboard if game is over
-      if (playerName && playerScore >= 0) {
-        scoreboard.push({ name: playerName, score: playerScore });
-      }
-      saveData();
-      page = 7; // Go to scoreboard page
-      return; // Exit function after going to scoreboard
+    if (playerName && playerScore >= 0) {
+      scoreboard.push({ name: playerName, score: playerScore });
     }
+    saveData(); // Save data before transitioning
+    grillSound.play(); // Optional sound effect
+    page = 7; // Navigate to the scoreboard
+    return; // Exit function to avoid other conditions running
+  }
     // Other reset actions
     gameOver = false;
     playerScore = 100;
