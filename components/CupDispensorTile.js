@@ -15,6 +15,8 @@ class CupDispensorTile {
     push();
     fill('#008080');
     rect( this.x , this.y , this.sz, this.sz);
+    image(cup_image, this.x, this.y, this.sz, this.sz);
+
     pop();
   }
 }

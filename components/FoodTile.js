@@ -20,13 +20,26 @@ class FoodTile {
       Noodles: '#c19650',
       MeatBalls: '#3D0F00'
     };
+    this.tileImages = {
+      Bun: buns_image,
+      Cheese: cheese_image,
+      MeatPatty: meatpatty_image,
+      Lettuce: lettuce_image,
+      Salmon: salmon_image,
+      Seaweed: seaweed_image,
+      Rice: rice_image,
+      Cucumber: cucumber_image,
+      Tomato: tomato_image,
+      Noodles: noodles_image,
+      MeatBalls: meatballs_image
+    };
   }
   
 
   // Processes an item placed on the station
   interact(item) {
     // TODO: Implement item processing logic based on station type
-    return({food: this.foodType, color: this.tileColors[this.foodType]})
+    return({food: this.foodType, color: this.tileColors[this.foodType], image: this.tileImages[this.foodType]})
   }
 
   // Draws the station tile
@@ -35,13 +48,15 @@ class FoodTile {
     push();
     if (this.foodType in this.tileColors){
       fill(this.tileColors[this.foodType])
+      if(this.foodType in this.tileImages){
+        
+      }
     } else {
       fill("#FF0000")
     }
     rect(this.x, this.y, this.sz, this.sz);
-    fill("black")
-    stroke("white")
-    text(this.foodType, this.x+(this.sz/2), this.y+(this.sz/2));
+    image(this.tileImages[this.foodType], this.x, this.y, this.sz, this.sz);
+   
     pop();
   }
 }

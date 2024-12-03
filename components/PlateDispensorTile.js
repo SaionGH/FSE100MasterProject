@@ -15,6 +15,8 @@ class PlateDispensorTile {
     push();
     fill('#d2d6d5');
     rect( this.x , this.y , this.sz, this.sz);
+    image(plates_image, this.x, this.y, this.sz, this.sz);
+
     pop();
   }
 }

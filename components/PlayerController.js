@@ -89,10 +89,10 @@ class PlayerController {
     translate(this.x, this.y);
     rotate(this.direction);
     ellipse(0, 0, this.sz, this.sz);
-    if (this.held) {
-      fill(this.held.color)
-    }
     ellipse(30+this.speed, 0, 20, 20);
+    if (this.held) {
+      image(this.held.image, 20+this.speed, -10, 20, 20);
+    }
     pop();
   }
 }

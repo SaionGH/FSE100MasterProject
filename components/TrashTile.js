@@ -15,6 +15,8 @@ class TrashTile {
     push();
     fill('#000000');
     rect( this.x , this.y , this.sz, this.sz);
+    image(trash_can, this.x, this.y, this.sz, this.sz);
+
     pop();
   }
 }
