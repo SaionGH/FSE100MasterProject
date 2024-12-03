@@ -169,13 +169,6 @@ function mousePressed() {
       page = 7; // Navigate to the scoreboard
       return; // Exit function to avoid other conditions running
     }
-
-    // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-    if (mouseX >= width / 2 - 150 && mouseX <= width / 2 + 150
-      && mouseY >= height / 2 + 50 && mouseY <= height / 2 + 100) {
-      page = 7; // Go to the scoreboard page
-    }
-    
     // Reset other game states after going to scoreboard
     gameOver = false;
     playerScore = 100; // Default score for new game or reset
