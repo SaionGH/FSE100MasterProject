@@ -1,4 +1,4 @@
- function displayScoreboard() {
+/* function displayScoreboard() {
   background(0);
   fill("white");
   textSize(45);
