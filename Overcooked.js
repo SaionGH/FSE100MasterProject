@@ -179,7 +179,6 @@ if (page === 5) { // Check if the user is on the timeout screen
     grillSound.play(); // Optional: Play sound effect
     page = 7; 
     console.log("hello");// Navigate to the dashboard page
-    return;
   }
     // Other reset actions
     gameOver = false;
