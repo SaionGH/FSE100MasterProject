@@ -100,8 +100,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    displayGameOver();
-    dashboardButton.show(); // Skip other rendering when game is over
+    displayGameOver();// Skip other rendering when game is over
   }
   if (page === 0) {
     displayMainMenu();
