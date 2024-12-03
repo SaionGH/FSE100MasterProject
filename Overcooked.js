@@ -149,7 +149,7 @@ function draw() {
     displayInstructions();
   } else if (page === 5) {
     displayGameOver();
-    window.viewScoreboardButton.show(); // Show the timeout screen
+  // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
