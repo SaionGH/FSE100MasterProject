@@ -148,14 +148,16 @@ function draw() {
     if (gameStarted && page === 8) {
         time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
         if (time <= 0) {
-            gameOver = true; // Set game over status when time runs out
+            gameOver = true;
+           displayScoreboard();// Set game over status when time runs out
         }
     }
 }
 
 function checkGameOver() {
   if (playerScore <= 0) {
-    gameOver = true; // Set game over status
+    gameOver = true; /
+     displayScoreboard();
     return; // Go to timeout screen
   }
 }
