@@ -139,7 +139,6 @@ function draw() {
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
-  console.log("Displaying scoreboard");
   displayScoreboard();
 } else if (page === 8) {
     level.update();
