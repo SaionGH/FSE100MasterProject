@@ -1,4 +1,3 @@
-let img;
 let img1;
 let gameStarted = false; // Variable to track if the game has started
 let selectedLevel = 0; // Variable to track the selected level
@@ -100,7 +99,8 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    displayGameOver();// Skip other rendering when game is over
+    displayGameOver();
+    dashboardButton.show(); // Skip other rendering when game is over
   }
   if (page === 0) {
     displayMainMenu();
@@ -159,13 +159,18 @@ if (page === 5) { // Check if the user is on the timeout screen
     time = gameDuration;
   }
   // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-  // Main menu buttons
-    if (page === 5 && mouseX >= width / 2 - 100 && mouseX <= width / 2 + 100 && mouseY >= height / 2 && mouseY <= height / 2 + 50) {
+  if (
+    page === 5 && // Scoreboard page
+    mouseX >= width / 2 - 75 &&
+    mouseX <= width / 2 + 75 &&
+    mouseY >= height - 100 &&
+    mouseY <= height - 50
+  ) {
     grillSound.play(); // Optional: Play sound effect
-    page = 7; // Navigate to Dashboard page
-    gameOver = false; // Reset gameOver to avoid triggering this again
+    page = 7; // Navigate to the dashboard page
     return;
-
+  }
+  // Main menu buttons
   console.log({ page, mouseX, mouseY });
   if (
     page === 0 &&
