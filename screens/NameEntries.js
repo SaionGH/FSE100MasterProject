@@ -1,4 +1,4 @@
-function displayNameEntry(submitButton) {
+/*function displayNameEntry(submitButton) {
   fill(0, 0, 0); // Green background for input section
   rect(50, 250, 500, 200); // Background for input section
   fill("white");
