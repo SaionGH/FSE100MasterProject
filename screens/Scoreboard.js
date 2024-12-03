@@ -1,4 +1,4 @@
-/* function displayScoreboard() {
+function displayScoreboard() {
   background(0);
   fill("white");
   textSize(45);
@@ -44,4 +44,4 @@
   textAlign(CENTER, CENTER); // Center the text
   text("Click to Return to Menu", width / 2, height - 75); // Button text
 }
-*/
+
