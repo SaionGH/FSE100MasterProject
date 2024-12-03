@@ -141,19 +141,19 @@ function draw() {
     level.display();
   }
   // Count down the timer if the game is in progress
-    if (gameStarted && page === 8) {
-        time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
-        if (time <= 0) {
-            gameOver = true; // Set game over status when time runs out
-        }
+if (gameStarted && page === 8 && !gameOver) {
+    time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
+    if (time <= 0) {
+        checkGameOver(); // Trigger game over when time runs out
     }
+}
 }
 
 function checkGameOver() {
-  if (playerScore <= 0) {
-    gameOver = true; // Set game over status
-    return; // Go to timeout screen
-  }
+    if (playerScore <= 0 || time <= 0) {
+        gameOver = true;
+        page = 5; // Navigate to the timeout screen
+    }
 }
 
 function mousePressed() {
