@@ -24,7 +24,7 @@ function displayScoreboard() {
     let nameToDisplay =
       scoreboard[i] && scoreboard[i].name ? scoreboard[i].name : "_________"; // Use player's name or placeholder
     text(rank + ". " + nameToDisplay, width / 2 - 170, 125 + i * 60);
-    // Display the score in white, centered in the green rectangle (empty if no score)
+    // Display the score in white, centered in the green rectangle (empty if no scor)
     fill("white");
     textAlign(CENTER, CENTER);
     let scoreToDisplay =
