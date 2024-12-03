@@ -1,4 +1,4 @@
-/*function displayLevelSelection() {
+function displayLevelSelection() {
   for (let i = 1; i <= 6; i++) {
     drawLevelSquare(i);
   }
@@ -45,4 +45,4 @@ function drawLevelSquare(level) {
   textSize(32);
   textAlign(CENTER, CENTER);
   text("Level " + level, startX + squareSize / 2, startY + squareSize / 2);
-}*/
+}
