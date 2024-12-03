@@ -132,7 +132,13 @@ function draw() {
   } else if (page === 4) {
     displayInstructions();
   } else if (page === 5) {
-    displayGameOver(); // Show the timeout screen
+    displayGameOver();
+            fill(255, 0, 0);
+        rect(width / 2 - 100, height - 100, 200, 50, 10); // Button rectangle
+        fill(255);
+        textAlign(CENTER, CENTER);
+        textSize(20);
+        text("View Dashboard", width / 2, height - 75); // Show the timeout screen
   } else if (page === 6) {
     displayDashboard(); // Show the dashboard
   } else if (page === 7) {
@@ -169,11 +175,21 @@ if (page === 5) { // Check if the user is on the timeout screen
     page = 7; // Navigate to the scoreboard
     return; // Exit function to avoid other conditions running
   }// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-if ((page === 6 || page === 5) && mouseX >= width / 2 - 150 && mouseX <= width / 2 + 150
-&& mouseY >= height / 2 + 50 && mouseY <= height / 2 + 100) {
-page = 7; // Go to the scoreboard page
-}
+       let buttonX = width / 2 - 100;
+        let buttonY = height - 100;
+        let buttonWidth = 200;
+        let buttonHeight = 50;
 
+        // Check if the mouse is inside the button bounds
+        if (
+            mouseX >= buttonX &&
+            mouseX <= buttonX + buttonWidth &&
+            mouseY >= buttonY &&
+            mouseY <= buttonY + buttonHeight
+        ) {
+            grillSound.play(); // Optional: Play a sound effect
+            page = 7; // Navigate to the scoreboard
+        }
     // Other reset actions
     gameOver = false;
     playerScore = 100;
