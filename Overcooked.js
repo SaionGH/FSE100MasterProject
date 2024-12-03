@@ -3,7 +3,7 @@ let img1;
 let gameStarted = false; // Variable to track if the game has started
 let selectedLevel = 0; // Variable to track the selected level
 let level = null;
-let playerName = ""; // Variable to store the player's nam
+let playerName = ""; // Variable to store the player's name
 let input; // Input element for the player's name
 let submitButton; // Button element for submission
 let showGameOptions = false; // Variable to track if game options should be shown
@@ -64,8 +64,7 @@ function handleViewScoreboard() {
   const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
   if (confirmTransition) {
     grillSound.play(); // Optional sound effect
-    page = 7;
-    displayScoreboard();// Navigate to the scoreboard
+    page = 7;// Navigate to the scoreboard
   }
 }
 function setup() {
@@ -137,7 +136,7 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    page = 7;
+    page = 6;
   }
   if (page === 0) {
     displayMainMenu();
@@ -172,28 +171,34 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    page = 7; // Go directly to the scoreboard
-    return;
+    return; // Go to timeout screen
   }
 }
 
 function mousePressed() {
   // Check for game over
-  if (gameOver && page === 7) { // Check if game over and in the scoreboard
-    if (playerName && playerScore >= 0) {
-      scoreboard.push({ name: playerName, score: playerScore });
-    }
-    saveData(); // Save data before transitioning
-    grillSound.play(); // Optional sound effect
-    return;
-  }
-    // Other reset actions
-    gameOver = false;
-    playerScore = 100;
-    selectedLevel = 0;
-    page = 0;
-    time = gameDuration;
-  }
+if (gameOver) {
+if (page === 5 || page === 6) { // Both game over and timeout screens
+// Add the player's score to the scoreboard if game is over
+if (playerName && playerScore >= 0) {
+scoreboard.push({ name: playerName, score: playerScore });
+}
+saveData();
+page = 7; // Go to scoreboard page
+return; // Exit function after going to scoreboard
+}
+// Other reset actions
+gameOver = false;
+playerScore = 100;
+selectedLevel = 0;
+page = 0;
+timer = gameDuration;
+}
+// Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
+if ((page === 6 || page === 5) && mouseX >= width / 2 - 150 && mouseX <= width / 2 + 150
+&& mouseY >= height / 2 + 50 && mouseY <= height / 2 + 100) {
+page = 7; // Go to the scoreboard page
+}
   
   // Main menu buttons
   console.log({ page, mouseX, mouseY });
