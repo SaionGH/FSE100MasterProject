@@ -14,6 +14,7 @@ let playerScore = 100; // Initialize player score
 let time; // Variable to track time remaining
 const gameDuration = 30; // Game duration in seconds
 let scoreboard = []; // Array to store player names and scores
+let transitionTimeout = null;
 
 function saveData() {
   localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
@@ -150,9 +151,30 @@ if (gameStarted && page === 8 && !gameOver) {
 }
 
 function checkGameOver() {
-    if (playerScore <= 0 || time <= 0) {
-        gameOver = true;
-        page = 5; // Navigate to the timeout screen
+    if (playerScore <= 0) {
+        gameOver = true; // Set game over status
+        page = 5; // Go to the Game Over screen
+
+        // Set a timeout to transition to the scoreboard automatically after 3 seconds
+        if (!transitionTimeout) {
+            transitionTimeout = setTimeout(() => {
+                if (page === 5) { // Ensure still on the Game Over screen
+                    if (playerName && playerScore >= 0) {
+                        scoreboard.push({ name: playerName, score: playerScore });
+                        saveData(); // Save data before transitioning
+                    }
+                    page = 7; // Transition to the scoreboard
+                    console.log("Transitioning to the scoreboard");
+                    transitionTimeout = null; // Reset timeout
+                }
+            }, 3000); // 3-second delay
+        }
+    }
+}
+function clearTransitionTimeout() {
+    if (transitionTimeout) {
+        clearTimeout(transitionTimeout);
+        transitionTimeout = null;
     }
 }
 
