@@ -8,3 +8,4 @@
   text("Game Over!", width / 2, height / 2 + 20);
   text("Click to View Scoreboard", width / 2, height / 2 + 70);
 }
+*/
