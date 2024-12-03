@@ -153,7 +153,7 @@ if (gameStarted && page === 8 && !gameOver) {
 function checkGameOver() {
     if (playerScore <= 0) {
         gameOver = true; // Set game over status
-        page = 7; // Go to the Game Over screen
+        page = 5; // Go to the Game Over screen
     }
 }
 
