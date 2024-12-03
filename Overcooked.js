@@ -60,6 +60,13 @@ function handleClearData() {
     clearData();
   } // Call the function to clear data
 }
+function handleViewScoreboard() {
+  const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
+  if (confirmTransition) {
+    grillSound.play(); // Optional sound effect
+    page = 7; // Navigate to the scoreboard
+  }
+}
 function setup() {
   createCanvas(600, 600);
 
@@ -80,20 +87,14 @@ function setup() {
   viewScoreboardButton.style("color", "white");
   viewScoreboardButton.style("font-size", "16px");
   viewScoreboardButton.style("padding", "10px");
-  viewScoreboardButton.style("border-radius", "5px");
-  viewScoreboardButton.hide(); // Initially hide the button
+  viewScoreboardButton.style("border-radius", "5px");// Initially hide the button
 
-  // Set up the button to transition to the scoreboard page when pressed
-   viewScoreboardButton.mousePressed(() => {
-    const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
-    if (confirmTransition) {
-      grillSound.play(); // Optional sound effect
-      page = 7; // Navigate to the scoreboard
-    }
-  });
+  viewScoreboardButton.mousePressed(handleViewScoreboard);
 
   // Store the button reference globally for toggling visibility later
   window.viewScoreboardButton = viewScoreboardButton;
+
+  // Store the button reference globally for toggling visibility later
   loadData();
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
