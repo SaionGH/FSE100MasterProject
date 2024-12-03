@@ -64,7 +64,8 @@ function handleViewScoreboard() {
   const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
   if (confirmTransition) {
     grillSound.play(); // Optional sound effect
-    page = 7; // Navigate to the scoreboard
+    page = 7;
+    displayScoreboard();// Navigate to the scoreboard
   }
 }
 function setup() {
