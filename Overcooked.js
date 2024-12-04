@@ -79,7 +79,7 @@ function setup() {
   clearDataButton.style("padding", "10px"); // Add some padding
   clearDataButton.style("font-size", "16px"); // Font size
   clearDataButton.style("border-radius", "5px");
-  clearDataButton.mousePressed(handleClearData);/
+  clearDataButton.mousePressed(handleClearData);
     loadData();
   // Add event handler for button press
   let viewScoreboardButton = createButton("View Scoreboard");
