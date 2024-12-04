@@ -81,7 +81,7 @@ function setup() {
   clearDataButton.mousePressed(handleClearData);// Rounded corners
   // Add event handler for button press
   let viewScoreboardButton = createButton("View Scoreboard");
-  viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
+  viewScoreboardButton.position(400, 450);// Adjust position as needed
   viewScoreboardButton.style("background-color", "green");
   viewScoreboardButton.style("color", "white");
   viewScoreboardButton.style("font-size", "16px");
