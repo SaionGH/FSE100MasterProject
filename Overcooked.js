@@ -34,9 +34,9 @@ function loadData() {
   selectedLevel = parseInt(localStorage.getItem("selectedLevel")) || 0;
 }
 
-
 function clearData() {
   // Clear all data from localStorage
+  console.log("Clearing data...");
   localStorage.removeItem("scoreboard");
   localStorage.removeItem("playerName");
   localStorage.removeItem("playerScore");
@@ -78,7 +78,8 @@ function setup() {
   clearDataButton.style("border", "none"); // Remove border
   clearDataButton.style("padding", "10px"); // Add some padding
   clearDataButton.style("font-size", "16px"); // Font size
-  clearDataButton.style("border-radius", "5px"); // Rounded corners
+  clearDataButton.style("border-radius", "5px");
+  clearDataButton.mousePressed(handleClearData);// Rounded corners
   // Add event handler for button press
   let viewScoreboardButton = createButton("View Scoreboard");
   viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
