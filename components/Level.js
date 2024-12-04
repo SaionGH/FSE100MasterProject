@@ -140,9 +140,9 @@ class Level {
   let centerY = height / 2; // Y position of the clock center
 
   // Draw the circle representing the clock's outer boundary
-  stroke(255);
+  stroke(211);
   strokeWeight(4);
-  fill(211, 211, 211); 
+  noFill();
   ellipse(centerX, centerY, clockRadius * 2, clockRadius * 2);
 
   // Calculate the angle for the clock's hand based on remaining time
