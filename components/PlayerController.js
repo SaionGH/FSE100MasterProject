@@ -92,7 +92,7 @@ class PlayerController {
   stroke(0);  // Add black outline
   strokeWeight(2)
     ellipse(0, 0, this.sz, this.sz);
-    fill(211, 0, 0);
+    fill(128, 128, 128);
     ellipse(30+this.speed, 0, 20, 20);
     if (this.held) {
       image(this.held.image, 20+this.speed, -10, 20, 20);
