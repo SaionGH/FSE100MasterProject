@@ -142,7 +142,7 @@ class Level {
   // Draw the circle representing the clock's outer boundary
   stroke(255);
   strokeWeight(4);
-  noFill();
+  fill(211, 211, 211); 
   ellipse(centerX, centerY, clockRadius * 2, clockRadius * 2);
 
   // Calculate the angle for the clock's hand based on remaining time
