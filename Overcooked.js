@@ -285,7 +285,7 @@ page = 7; // Go to the scoreboard page
     if (mouseX >= 200 && mouseX <= 400 && mouseY >= 450 && mouseY <= 500) {
       grillSound.play();
       console.log("One Player selected");
-      page = 1; // Go to dashboard page
+      page = 1; // Go to dshboard page
     }
   // Check for game option selection
   // Check if user wants to return to the main menu (scoreboard page)
