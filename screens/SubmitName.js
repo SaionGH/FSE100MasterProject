@@ -20,6 +20,6 @@ function submitName(submitButton) {
   saveData();
 
   // Go to the game options page
-  page = 3; // Go to the Game Options page
+  page = 1; // Go to the Game Options page
 }
 
