@@ -36,7 +36,6 @@ function loadData() {
 
 function clearData() {
   // Clear all data from localStorage
-  console.log("Clearing data...");
   localStorage.removeItem("scoreboard");
   localStorage.removeItem("playerName");
   localStorage.removeItem("playerScore");
