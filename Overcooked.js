@@ -80,7 +80,6 @@ function setup() {
   clearDataButton.style("font-size", "16px"); // Font size
   clearDataButton.style("border-radius", "5px");
   clearDataButton.mousePressed(handleClearData);
-    loadData();
   // Add event handler for button press
   let viewScoreboardButton = createButton("View Scoreboard");
   viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
@@ -90,7 +89,7 @@ function setup() {
   viewScoreboardButton.style("padding", "10px");
   viewScoreboardButton.style("border-radius", "5px");
   viewScoreboardButton.mousePressed(handleViewScoreboard);
-
+  loadData();
   // Store the button reference globally for toggling visibility later
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
