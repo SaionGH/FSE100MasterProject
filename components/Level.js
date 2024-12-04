@@ -127,13 +127,35 @@ class Level {
   update() {
     this.player.move(this);
   }
-    displayTiming() {
-    // Display the global timer
-    fill(255);
-    textSize(32);
-    textAlign(CENTER, TOP);
-    text(`Time Left: ${Math.ceil(time)}s`, width / 2, 20);
-    }
+  displayTiming() {
+  // Display the global timer as text
+  fill(255);
+  textSize(32);
+  textAlign(CENTER, TOP);
+  text(`Time Left: ${Math.ceil(time)}s`, width / 2, 20);
+
+  // Draw a circular clock to represent time left
+  let clockRadius = 100; // Set the clock size
+  let centerX = width / 2; // X position of the clock center
+  let centerY = height / 2; // Y position of the clock center
+
+  // Draw the circle representing the clock's outer boundary
+  stroke(255);
+  strokeWeight(4);
+  noFill();
+  ellipse(centerX, centerY, clockRadius * 2, clockRadius * 2);
+
+  // Calculate the angle for the clock's hand based on remaining time
+  let angle = map(time, 0, gameDuration, -HALF_PI, TWO_PI - HALF_PI); // Start at the top (-HALF_PI) and go clockwise
+
+  // Draw the clock's hand (representing time left)
+  let handLength = clockRadius - 10; // Length of the clock hand
+  let handX = centerX + handLength * cos(angle); // X position of hand's end
+  let handY = centerY + handLength * sin(angle); // Y position of hand's end
+
+  stroke(255, 0, 0); // Red color for the clock hand
+  line(centerX, centerY, handX, handY); 
+  }
   
   getTileAt(x, y) {
     console.log("getTileAt", x, y)
