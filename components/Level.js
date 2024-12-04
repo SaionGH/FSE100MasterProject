@@ -127,6 +127,14 @@ class Level {
   update() {
     this.player.move(this);
   }
+    displayTiming() {
+    // Display the global timer
+    fill(255);
+    textSize(32);
+    textAlign(CENTER, TOP);
+    text(`Time Left: ${Math.ceil(time)}s`, width / 2, 20);
+    }
+  
   getTileAt(x, y) {
     console.log("getTileAt", x, y)
     const row = Math.floor(x / this.tileWidth);
