@@ -12,7 +12,7 @@ let showInstructions = false;
 let gameOver = false; // Variable to track game over status
 let playerScore = 100; // Initialize player score
 let time; // Variable to track time remaining
-const gameDuration = 30; // Game duration in seconds
+const gameDuration = 480; // Game duration in seconds
 let scoreboard = []; // Array to store player names and scores
 
 function saveData() {
