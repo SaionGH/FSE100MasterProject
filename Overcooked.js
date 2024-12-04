@@ -156,6 +156,7 @@ function draw() {
 } else if (page === 8) {
     level.update();
     level.display();
+    level.displayTiming();
   }
   // Count down the timer if the game is in progress
     if (gameStarted && page === 8) {
