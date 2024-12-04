@@ -88,11 +88,11 @@ class PlayerController {
     push();
     translate(this.x, this.y);
     rotate(this.direction);
-    fill(0, 0, 255); 
+    fill(0, 0, 0); 
   stroke(0);  // Add black outline
   strokeWeight(2)
     ellipse(0, 0, this.sz, this.sz);
-    fill(255, 0, 0);
+    fill(211, 0, 0);
     ellipse(30+this.speed, 0, 20, 20);
     if (this.held) {
       image(this.held.image, 20+this.speed, -10, 20, 20);
