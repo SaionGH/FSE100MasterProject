@@ -282,18 +282,6 @@ page = 7; // Go to the scoreboard page
     }
   }
   // Check for game option selection
-  if (page === 3) {
-    if (mouseX >= 200 && mouseX <= 400 && mouseY >= 450 && mouseY <= 500) {
-      grillSound.play();
-      console.log("One Player selected");
-      page = 1; // Go to dashboard page
-    }
-    if (mouseX >= 200 && mouseX <= 400 && mouseY >= 510 && mouseY <= 560) {
-      grillSound.play();
-      console.log("Two Players selected");
-      page = 1; // Go to dashboard page
-    }
-  }
   // Check if user wants to return to the main menu (scoreboard page)
   if (page === 7) {
     let buttonX = width / 2;
