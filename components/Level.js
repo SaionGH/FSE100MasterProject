@@ -9,10 +9,6 @@ class Level {
     this.grid = [];
     this.createLevel(mapData);
     this.player = new PlayerController(width / 2, height / 2);
-    this.buttonX = width / 2 - 100;  // Button's X position (centered)
-    this.buttonY = 20;              // Button's Y position (top of the screen)
-    this.buttonWidth = 200;         // Button width
-    this.buttonHeight = 50;  
   }
 
   // Creates the level grid with tiles based on mapData
@@ -130,22 +126,6 @@ class Level {
 
   update() {
     this.player.move(this);
-  }
-  drawDashboardButton() {
-    fill("white");
-    rect(this.buttonX, this.buttonY, this.buttonWidth, this.buttonHeight);  // Button rectangle
-    fill("black");
-    textSize(20);
-    textAlign(CENTER, CENTER);
-    text("Dashboard", this.buttonX + this.buttonWidth / 2, this.buttonY + this.buttonHeight / 2);  // Button text
-  }
-
-  // Check if the mouse is over the button, and trigger the dashboard change
-  checkButtonClick() {
-    if (mouseX >= this.buttonX && mouseX <= this.buttonX + this.buttonWidth &&
-        mouseY >= this.buttonY && mouseY <= this.buttonY + this.buttonHeight) {
-      page = "dashboard";  // Switch to the dashboard screen, update your page variable or state management
-    }
   }
   getTileAt(x, y) {
     console.log("getTileAt", x, y)
