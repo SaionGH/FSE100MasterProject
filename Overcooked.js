@@ -79,7 +79,8 @@ function setup() {
   clearDataButton.style("padding", "10px"); // Add some padding
   clearDataButton.style("font-size", "16px"); // Font size
   clearDataButton.style("border-radius", "5px");
-  clearDataButton.mousePressed(handleClearData);// Rounded corners
+  clearDataButton.mousePressed(handleClearData);/
+    loadData();
   // Add event handler for button press
   let viewScoreboardButton = createButton("View Scoreboard");
   viewScoreboardButton.position(width / 2 - 75, height - 60); // Adjust position as needed
@@ -91,7 +92,6 @@ function setup() {
   viewScoreboardButton.mousePressed(handleViewScoreboard);
 
   // Store the button reference globally for toggling visibility later
-  loadData();
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
   grillSound = loadSound("sounds/food-sizzling-76022.mp3");
