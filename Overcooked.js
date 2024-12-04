@@ -135,6 +135,7 @@ function draw() {
   background(0);
   if (gameOver) {
     page = 5;
+    return;
   }
   if (page === 0) {
     displayMainMenu();
