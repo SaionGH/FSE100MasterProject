@@ -7,9 +7,9 @@ class Level {
     this.tileWidth = width / this.rows;
     this.tileHeight = height / this.columns;
     this.grid = [];
-    this.buttonX = width / 2 - 100;  // Button's X position (centered)
-    this.buttonY = 20;              // Button's Y position (top of the screen)
-    this.buttonWidth = 200;         // Button width
+    this.buttonX = width / 2 - 100;  
+    this.buttonY = 20;              
+    this.buttonWidth = 200;       
     this.buttonHeight = 50;  
     this.player = p
     this.orderManager = orderManager;
@@ -124,7 +124,6 @@ class Level {
               tileCode
             );
             break;
-          // Add more cases as needed
           default:
             this.grid[i][j] = new FloorTile(
               i * this.tileWidth,
@@ -165,64 +164,58 @@ class Level {
   }
   
   displayTiming() {
-  fill(0); // White text color
-  textSize(32); // Set text size
-  textAlign(RIGHT, BOTTOM); // Align text to the right and bottom
-  text(`Time Left: ${Math.ceil(time)}s`, width - 10, height - 10); // Position at the bottom-right with a margin                                                              
+  fill(0); 
+  textSize(32); 
+  textAlign(RIGHT, BOTTOM);
+  text(`Time Left: ${Math.ceil(time)}s`, width - 10, height - 10);                                                          
 
-  if (time <= 30 && !gameOver) { // Ensure clock is only shown during gameplay
-    // Draw a circular clock to represent time left
-    let clockRadius = 100; // Set the clock size
-    let centerX = width / 2; // X position of the clock center
-    let centerY = height / 2; // Y position of the clock center
+  if (time <= 30 && !gameOver) { 
+    let clockRadius = 100; 
+    let centerX = width / 2; 
+    let centerY = height / 2; 
 
-    // Draw the circle representing the clock's outer boundary
     stroke(211);
     strokeWeight(4);
     noFill();
     ellipse(centerX, centerY, clockRadius * 2, clockRadius * 2);
 
-    // Calculate the angle for the clock's hand based on remaining time
-    let angle = map(time, 0, gameDuration, -HALF_PI, TWO_PI - HALF_PI); // Start at the top (-HALF_PI) and go clockwise
+    let angle = map(time, 0, gameDuration, -HALF_PI, TWO_PI - HALF_PI); 
 
-    // Draw the clock's hand (representing time left)
-    let handLength = clockRadius - 10; // Length of the clock hand
-    let handX = centerX + handLength * cos(angle); // X position of hand's end
-    let handY = centerY + handLength * sin(angle); // Y position of hand's end
+    let handLength = clockRadius - 10; 
+    let handX = centerX + handLength * cos(angle); 
+    let handY = centerY + handLength * sin(angle); 
 
-    stroke(255, 0, 0); // Red color for the clock hand
+    stroke(255, 0, 0); 
     line(centerX, centerY, handX, handY);
     
-    stroke(0); // Reset stroke color
-    strokeWeight(1); // Reset stroke weight
+    stroke(0); 
+    strokeWeight(1); 
   }
-  
   }
   
   drawDashboardButton() {
     fill("white");
-    rect(this.buttonX, this.buttonY, this.buttonWidth, this.buttonHeight);  // Button rectangle
+    rect(this.buttonX, this.buttonY, this.buttonWidth, this.buttonHeight);  
     fill("black");
     textSize(20);
     textAlign(CENTER, CENTER);
-    text("Dashboard", this.buttonX + this.buttonWidth / 2, this.buttonY + this.buttonHeight / 2);  // Button text
+    text("Dashboard", this.buttonX + this.buttonWidth / 2, this.buttonY + this.buttonHeight / 2);  
   }
 
   // Check if the mouse is over the button, and trigger the dashboard change
   checkButtonClick() {
     if (mouseX >= this.buttonX && mouseX <= this.buttonX + this.buttonWidth &&
         mouseY >= this.buttonY && mouseY <= this.buttonY + this.buttonHeight) {
-      page = "dashboard";  // Switch to the dashboard screen, update your page variable or state management
+      page = "dashboard";  
     }
   }
   getTileAt(x, y) {
-    //console.log("getTileAt", x, y)
     const row = Math.floor(x / this.tileWidth);
     const col = Math.floor(y / this.tileWidth);
     if (row >= 0 && row < this.rows && col >= 0 && col < this.cols) {
       return this.grid[row][col];
     }
-    return null; // Return null if the coordinates are out of bounds
+    return null; 
   }
 }
 let map1 = [
