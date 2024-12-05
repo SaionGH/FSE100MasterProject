@@ -134,7 +134,8 @@ function setup() {
 function draw() {
   background(0);
   if (gameOver) {
-    page = 5;
+    displayGameOver();
+    return; 
   }
   if (page === 0) {
     displayMainMenu();
@@ -170,7 +171,7 @@ function draw() {
 function checkGameOver() {
   if (playerScore <= 0) {
     gameOver = true; // Set game over status
-    return; // Go to timeout screen
+    page = 5;// Go to timeout screen
   }
 }
 
