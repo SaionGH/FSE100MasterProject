@@ -32,7 +32,11 @@ function displayScoreboard() {
     text(scoreToDisplay, width / 2 + 140, 125 + i * 60);
   }
   // Display two larger images at the bottom, with some space above
-
+    const buttonX = width / 2 - 75;
+    const buttonY = height - 100;
+    const buttonWidth = 150;
+    const buttonHeight = 40;
+  
     fill(200); // Gray background for the button
     rect(buttonX, buttonY, buttonWidth, buttonHeight, 10); // Rounded rectangle
     fill(0); // Black text
