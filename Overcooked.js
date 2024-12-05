@@ -1,6 +1,6 @@
 //////gameplayer Variables/////////
 let playerScore = 0;
-const gameDuration = 300;
+const gameDuration = 5;
 
 const level1Orders = ["Lettuce","Bun","Cheese","MeatPatty"];
 const level2Orders = ["Lettuce","Bun","Cheese","MeatPatty"];
