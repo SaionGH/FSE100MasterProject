@@ -33,7 +33,6 @@ function displayScoreboard() {
   }
   // Display two larger images at the bottom, with some space above
 
-
     fill(200); // Gray background for the button
     rect(buttonX, buttonY, buttonWidth, buttonHeight, 10); // Rounded rectangle
     fill(0); // Black text
