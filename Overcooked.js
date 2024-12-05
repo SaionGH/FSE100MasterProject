@@ -398,23 +398,23 @@ function mousePressed() {
   // Check for game over
 
 // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
-    if (page === 7) {
-        const buttonX = width / 2 - 75;
-        const buttonY = height - 100;
-        const buttonWidth = 150;
-        const buttonHeight = 40;
+   if (page === 7) {
+    const buttonX = width / 2 - 75;
+    const buttonY = height - 100;
+    const buttonWidth = 150;
+    const buttonHeight = 40;
 
-        if (
-            mouseX >= buttonX &&
-            mouseX <= buttonX + buttonWidth &&
-            mouseY >= buttonY &&
-            mouseY <= buttonY + buttonHeight
-        ) {
-            page = 0; // Go back to the main menu
-            console.log("Returning to main menu.");
-        }
-        return; 
+    if (
+      mouseX >= buttonX &&
+      mouseX <= buttonX + buttonWidth &&
+      mouseY >= buttonY &&
+      mouseY <= buttonY + buttonHeight
+    ) {
+      page = 0; // Go back to the main menu
+      console.log("Returning to main menu.");
     }
+    return;
+  }
 }
 
 function startGame() {
