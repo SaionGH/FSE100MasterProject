@@ -1,8 +1,8 @@
 class PointManager {
   
   constructor() {
-    this.currentPoints = 0; // Points for the current level
-    this.scoreboard = []; // Array to store scores for each level
+    this.currentPoints = 0; 
+    this.scoreboard = []; 
   }
   
 
@@ -15,7 +15,7 @@ class PointManager {
   deductPoints(points) {
     this.currentPoints -= points;
     playerScore = this.currentPoints;
-    if (this.currentPoints < 0) this.currentPoints = 0; // Prevent negative points
+    if (this.currentPoints < 0) this.currentPoints = 0;
     console.log(`Points Deducted: ${points}. Total: ${this.currentPoints}`);
   }
 
