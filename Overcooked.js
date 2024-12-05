@@ -19,21 +19,19 @@ const level6Patience = [20, 25, 30];
 //////////////////////////////////
 let gameplayCont;
 let orderInterval = 100;
-let gameStarted = false; // Variable to track if the game has started
-let selectedLevel = 0; // Variable to track the selected level
+let gameStarted = false; 
+let selectedLevel = 0;
 let level = null;
-let playerName = ""; // Variable to store the player's name
+let playerName = ""; 
 let input; // Input element for the player's name
 let globalVolume = 0.3;
-let submitButton; // Button element for submission
-let showGameOptions = false; // Variable to track if game options should be shown
-let page = 0; // Track which page is currently displayed
+let submitButton; 
+let showGameOptions = false; 
+let page = 0; 
 let showInstructions = false;
-let gameOver = false; // Variable to track game over status
- // Initialize player score
-let time; // Variable to track time remaining
- // Game duration in seconds
-let scoreboard = []; // Array to store player names and scores
+let gameOver = false; 
+let time; 
+let scoreboard = [];
 
 let img, img1, img2, img3;
 let buns_image, cheese_image, meatpatty_image, lettuce_image, salmon_image;
@@ -91,29 +89,26 @@ function clearData() {
   localStorage.removeItem("playerName");
   localStorage.removeItem("playerScore");
   localStorage.removeItem("selectedLevel");
-  // Reset game-related variables to their defaults
   playerName = "";
   playerScore = 0;
   selectedLevel = 0;
   scoreboard = [];
-  // Optionally reset other variables if necessary (like the game state, timer, etc.)
   gameStarted = false;
   gameOver = false;
   time = gameDuration;
-  page = 0; // Go back to the main menu after clearing data
-  // Display a message to inform the user (optional)
+  page = 0; 
   alert("Game data cleared successfully!");
 }
 function handleClearData() {
   const userConfirmed = confirm("Are you sure you want to clear all data?");
   if (userConfirmed) {
     clearData();
-  } // Call the function to clear data
+  } 
 }
 function handleViewScoreboard() {
   const confirmTransition = confirm("Are you sure you want to view the scoreboard?");
   if (confirmTransition) {
-    page = 7; // Navigate to the scoreboard
+    page = 7; 
   }
 }
 
@@ -121,18 +116,16 @@ function setup() {
   createCanvas(600, 600);
 
   let clearDataButton = createButton("Clear Data");
-  //clearDataButton.position(490, 10); // Adjust the position as needed
-
   clearDataButton.style("background-color", "red");
-  clearDataButton.style("color", "white"); // Text color
-  clearDataButton.style("border", "none"); // Remove border
-  clearDataButton.style("padding", "10px"); // Add some padding
-  clearDataButton.style("font-size", "16px"); // Font size
+  clearDataButton.style("color", "white"); 
+  clearDataButton.style("border", "none"); 
+  clearDataButton.style("padding", "10px");
+  clearDataButton.style("font-size", "16px"); 
   clearDataButton.style("border-radius", "5px");
-  clearDataButton.mousePressed(handleClearData);// Rounded corners
-  // Add event handler for button press
+  clearDataButton.mousePressed(handleClearData);
+
   let viewScoreboardButton = createButton("View Scoreboard");
-  viewScoreboardButton.position(100, 620); // Adjust position as needed
+  viewScoreboardButton.position(100, 620);
   viewScoreboardButton.style("background-color", "green");
   viewScoreboardButton.style("color", "white");
   viewScoreboardButton.style("font-size", "16px");
@@ -140,7 +133,6 @@ function setup() {
   viewScoreboardButton.style("border-radius", "5px");
   viewScoreboardButton.mousePressed(handleViewScoreboard);
 
-  // Store the button reference globally for toggling visibility later
   loadData();
   img = loadImage("images/clearburger.png");
   img1 = loadImage("images/grill.png");
@@ -191,20 +183,20 @@ function setup() {
 
   // Create an input field for the player's name
   input = createInput("");
-  input.position(200, 350); // Position the input field
-  input.hide(); // Initially hide the input field
+  input.position(200, 350);
+  input.hide(); 
   // Create a submit button
   submitButton = createButton("Submit!");
   submitButton.position(200, 400);
-  submitButton.style("background-color", "red"); // Red background
-  submitButton.style("color", "white"); // White text
+  submitButton.style("background-color", "red"); 
+  submitButton.style("color", "white"); 
   submitButton.style("font-size", "20px");
   submitButton.style("padding", "10px");
   submitButton.style("font-weight", "bold");
-  submitButton.hide(); // Initially hide the button
+  submitButton.hide();
   submitButton.mousePressed(() => {
     submitName(submitButton);
-  }); // Set up button action
+  }); 
   gameplayCont = new GamePlayLoopController();
 }
 function draw() {
@@ -224,35 +216,25 @@ function draw() {
     displayInstructions();
   } else if (page === 5) {
     displayGameOver();
-  // Show the timeout screen
   } else if (page === 6) {
-    displayDashboard(); // Show the dashboard
+    displayDashboard(); 
   } else if (page === 7) {
   displayScoreboard();
 } else if (page === 8) {
     gameplayCont.draw();
   }
-  // Count down the timer if the game is in progress
     if (gameStarted && page === 8) {
-        time -= deltaTime / 1000; // Decrease timer by elapsed time in seconds
+        time -= deltaTime / 1000; 
         if (time <= 0) {
-            gameOver = true; // Set game over status when time runs out
+            gameOver = true; 
         }
     }
 }
 
 function checkGameOver() {
-  //if (playerScore <= 0) {
-   // gameOver = true; // Set game over status
-   // return; // Go to timeout screen
- // }
 }
 
 function mousePressed() {
-  // Check if game over and on Game Over page (page 5)
-
-  
-  // Main menu buttons
   console.log({ page, mouseX, mouseY });
   if (
     page === 0 &&
@@ -299,11 +281,10 @@ function mousePressed() {
   // Check for level selection
   if (page === 1) {
     for (let i = 1; i <= 6; i++) {
-      let squareSize = 150; // Size of the square
-      let spacing = 20; // Spacing between squares
-      let startX = 150 + ((i - 1) % 2) * (squareSize + spacing); // X position
-      let startY = 50 + Math.floor((i - 1) / 2) * (squareSize + spacing); // Y position
-      // Check if the mouse is over the square
+      let squareSize = 150; 
+      let spacing = 20; 
+      let startX = 150 + ((i - 1) % 2) * (squareSize + spacing); 
+      let startY = 50 + Math.floor((i - 1) / 2) * (squareSize + spacing); 
       if (
         mouseX >= startX &&
         mouseX <= startX + squareSize &&
@@ -311,37 +292,37 @@ function mousePressed() {
         mouseY <= startY + squareSize
       ) { 
         if (i === 1) {
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map1, gameplayCont.player, orderManager,level1Orders, level1Patience);
           gameplayCont.player.level = gameplayCont.level;
           startGame(); 
         } else if (i === 2) {
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map2, gameplayCont.player, orderManager,level2Orders, level2Patience); 
           gameplayCont.player.level = gameplayCont.level;
           startGame(); 
         } else if (i === 3) {
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map3, gameplayCont.player, orderManager,level3Orders,level3Patience); 
           gameplayCont.player.level = gameplayCont.level;
           startGame();  
         } else if (i === 4) {
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map4, gameplayCont.player, orderManager,level4Orders,level4Patience); 
           gameplayCont.player.level = gameplayCont.level;
           startGame(); 
         } else if (i === 5) { 
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map5, gameplayCont.player, orderManager,level5Orders,level5Patience); 
           gameplayCont.player.level = gameplayCont.level;
           startGame(); 
         } else if (i === 6) {
-          const orderManager = new OrderManager(); // Create a new OrderManager instance
+          const orderManager = new OrderManager(); 
           gameplayCont.orderManager = orderManager;
           gameplayCont.level = new Level(map6, gameplayCont.player, orderManager,level6Orders,level6Patience); 
           gameplayCont.player.level = gameplayCont.level;
@@ -350,7 +331,7 @@ function mousePressed() {
         //grillSound.play();
         selectedLevel = i;
         console.log("Level " + selectedLevel + " selected!");
-        time = gameDuration; // Reset timer to the game duration
+        time = gameDuration; 
         gameStarted = true; 
         page = 8; // Go to name entry page
       }
@@ -369,14 +350,11 @@ function mousePressed() {
       page = 1; // Go to dashboard page
     }
   }
-  // Check if user wants to return to the main menu (scoreboard page)
   if (gameOver && page === 5) {
-    const buttonX = width / 2 - 100; // Button position X
-    const buttonY = height / 2 + 100; // Button position Y
-    const buttonWidth = 200; // Button width
-    const buttonHeight = 50; // Button height
-
-    // Check if mouse is within the button bounds
+    const buttonX = width / 2 - 100; 
+    const buttonY = height / 2 + 100; 
+    const buttonWidth = 200; 
+    const buttonHeight = 50; 
     if (
       mouseX >= buttonX &&
       mouseX <= buttonX + buttonWidth &&
@@ -395,7 +373,7 @@ function mousePressed() {
       return;
     }
   }
-  // Check for game over
+
 
 // Check if "Click to View Scoreboard" was clicked on the game over or dashboard screens
    if (page === 7) {
@@ -426,37 +404,29 @@ function startGame() {
     orderInterval = setInterval(() => {
     gameplayCont.orderManager.addRandomOrder(); 
   }, 7000);
-    // Start generating orders
   }
 
   function stopGame() {
     gameStarted = false;
     gameOver = true;
-    // Stop generating orders
-    
   }
 
   function resetGame() {
-    gameplayCont.player.x = gameplayCont.startingPlayerX || width / 2; // Use a starting position or center
+    gameplayCont.player.x = gameplayCont.startingPlayerX || width / 2; 
     gameplayCont.player.y = gameplayCont.startingPlayerY || height / 2;
 
-  // Clear held items
     gameplayCont.player.held = null;
     gameplayCont.player.secondaryHeld = null;
     gameplayCont.pointManager.resetPoints();
     if (orderInterval) {
         clearInterval(orderInterval);
-        orderInterval = null; // Reset to null to prevent accidental reuse
+        orderInterval = null; 
     }
     gameplayCont.orderManager.orders = [];
-
-    // Reset game-related variables
     gameOver = false;
     gameStarted = false;
-    page = 0; // Return to the main menu
+    page = 0; 
     time = gameDuration;
-
-    // Reset scoreboard input
     playerName = "";
     input.value("");
     console.log("Game reset successfully.");
@@ -467,35 +437,23 @@ function startGame() {
 
 
 function keyPressed() {
-    // Check if the '1' key is pressed
     if (key === '1') {
         cheatCompleteOrder();
     }
     if (key === "2") {
-      gameplayCont.player.logHeldItem(); // Assuming `player` is an instance of `PlayerController`
+      gameplayCont.player.logHeldItem(); 
     }
-    
-  
 }
 function cheatCompleteOrder() {
     if (gameplayCont.orderManager.orders.length > 0) {
-        // Get the first order in the list
         const firstOrder = gameplayCont.orderManager.orders[0];
 
         if (firstOrder.status === "active") {
-            firstOrder.Completed(); // Mark the order as completed
-
-            // Award points for the order
+            firstOrder.Completed(); 
             const points = firstOrder.calculatePoints();
             gameplayCont.pointManager.addPoints(points);
-
-            console.log(`Cheat: Completed the first order! Awarded ${points} points.`);
-        } else {
-            console.log("Cheat: First order is not active.");
         }
-    } else {
-        console.log("Cheat: No orders to complete.");
-    }
+    } 
 }
 
 
