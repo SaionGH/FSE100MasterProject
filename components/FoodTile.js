@@ -3,7 +3,7 @@ class FoodTile {
   constructor(x, y, sz, foodType) {
     this.x = x;
     this.y = y;
-    this.foodType = foodType; // e.g., 'buns', 'cheese','meat' , 'lettuce', 'salmon','seaweed', 'rice', 'cucumber', 'tomato', 'noodles', 'meatballs'
+    this.foodType = foodType; 
     this.isWalkable = false;
     this.isOccupied = false;
     this.sz = sz;
@@ -46,7 +46,6 @@ class FoodTile {
       image: this.tileImages[this.foodType],
     };
   }
-  console.log("Player not holding a plate or plate is already full.");
   return null;
 }
 
