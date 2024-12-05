@@ -11,21 +11,20 @@ class TrashTile {
       console.error("Player object is undefined.");
       return;
     }
-
-    // Check if the player is holding anything
+    
     if (player.held) {
       if (player.secondaryHeld) {
         // Remove the secondary item first (ingredient on the plate)
         console.log("Discarding secondary held item:", player.secondaryHeld);
-        player.secondaryHeld = null; // Clear secondaryHeld
+        player.secondaryHeld = null;
       } else if (player.held instanceof Plate) {
         // If the player is holding a plate, discard it
         console.log("Discarding plate.");
-        player.held = null; // Clear held plate
+        player.held = null; 
       } else {
         // If holding another object (not a plate), discard it
         console.log("Discarding held item:", player.held);
-        player.held = null; // Clear held object
+        player.held = null; 
       }
     } else {
       console.log("Player is not holding anything to discard.");
@@ -33,7 +32,6 @@ class TrashTile {
   }
   // Draws the counter tile
   draw() {
-    // TODO: Implement counter tile drawing
     push();
     fill('#000000');
     rect( this.x , this.y , this.sz, this.sz);
