@@ -33,12 +33,6 @@ function displayScoreboard() {
   }
   // Display two larger images at the bottom, with some space above
   // Set the size for both images
-  let imageSize1 = 200; // Size for the first image (left)
-  let imageSize2 = 200; // Larger size for the second image (right)
-  // Display the first image (img2) on the left with a smaller size
-  image(img2, 120, 330, imageSize1, imageSize1);
-  image(img3, 200, 310, 350, imageSize2);
-  // Button for returning to the main menu
   fill("white"); // White text color
   textSize(30); // Text size for the button
   textAlign(CENTER, CENTER); // Center the text
