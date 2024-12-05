@@ -31,7 +31,7 @@ function displayScoreboard() {
       scoreboard[i] && scoreboard[i].score ? scoreboard[i].score : "0"; //Use player's score or 0
     text(scoreToDisplay, width / 2 + 140, 125 + i * 60);
   }
-  // Display two larger images at the bottom, with some space above
+  // Display two larger images at the botom, with some space above
     const buttonX = width / 2 - 75;
     const buttonY = height - 100;
     const buttonWidth = 150;
