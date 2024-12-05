@@ -16,14 +16,14 @@ class GamePlayLoopController{
     this.orderManager.pointManager = this.pointManager;
   }
   gamePlay() {
-   background(0); // Clear the canvas
+   background(0); 
     this.orderManager.orderList = this.level.orderList;
     if (this.level) {
-    this.level.display(); // Call Level's display
-  }
+      this.level.display(); 
+    }
 
   if (this.level) {
-    this.level.update(deltaTime, this.gameStarted, this.gameOver); // Call Level's update logic
+    this.level.update(deltaTime, this.gameStarted, this.gameOver); 
   }
     
   if (this.level.displayTiming()) {
@@ -46,20 +46,17 @@ class GamePlayLoopController{
   
 
    
-    startGame() {
-      if (!this.level) {
-        this.level = new Level(map1, this.player, this.orderManager); // Example: Use map1 for the first level
-      }
-      this.gameStarted = true;
+  startGame() {
+    if (!this.level) {
+      this.level = new Level(map1, this.player, this.orderManager); 
+    }
+    this.gameStarted = true;
   }
 
-   stopGame() {
+  stopGame() {
     this.gameStarted = false;
-
-    // Stop generating orders
     if (this.orderInterval) {
       clearInterval(this.orderInterval);
-      console.log("Game stopped and order generation halted.");
     }
   }  
 }
