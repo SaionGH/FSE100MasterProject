@@ -37,10 +37,18 @@ class FoodTile {
   
 
   // Processes an item placed on the station
-  interact(item) {
-    // TODO: Implement item processing logic based on station type
-    return({food: this.foodType, color: this.tileColors[this.foodType], image: this.tileImages[this.foodType]})
+  interact(player) {
+  if (player.held instanceof Plate && !player.secondaryHeld) {
+    console.log("Adding ingredient to plate.");
+    return {
+      food: this.foodType,
+      color: this.tileColors[this.foodType],
+      image: this.tileImages[this.foodType],
+    };
   }
+  console.log("Player not holding a plate or plate is already full.");
+  return null;
+}
 
   // Draws the station tile
   draw() {

@@ -8,6 +8,18 @@ function displayGameOver() {
   text("Over!", width / 2, height / 2 - 74);
   textSize(30);
   text("Your Score: " + playerScore, width / 2, height / 2 + 20);
-  text("Click to Return to Menu", width / 2, height / 2 + 70);// it should say return to menu
-     gameOver = true; 
+   // Button to view leaderboard
+  const buttonX = width / 2 - 100; // Button position X
+  const buttonY = height / 2 + 100; // Button position Y
+  const buttonWidth = 200; // Button width
+  const buttonHeight = 50; // Button height
+
+  // Draw the button
+  fill("blue");
+  rect(buttonX, buttonY, buttonWidth, buttonHeight, 10); // Rounded rectangle
+  fill("white");
+  textSize(20);
+  textAlign(CENTER, CENTER);
+  text("View Leaderboard", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
+  gameOver = true;
 }

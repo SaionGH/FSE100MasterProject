@@ -6,8 +6,19 @@ class PlateDispensorTile {
     this.isWalkable = false;
     this.sz = sz;
   }
-  interact() {
+  interact(player) {
+    if (!player) {
+    console.error("Player object is undefined.");
+    return;
+  }
+  
+    if (!player.held) {
+    console.log("Player picked up a plate.");
+    return new Plate(player.x, player.y);
+  } else {
+    console.log("Player is already holding something.");
     return null;
+  }
   }
   // Draws the counter tile
   draw() {

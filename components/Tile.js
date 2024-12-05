@@ -5,8 +5,9 @@ class Tile {
     this.y = y;
     this.sz = sz;
     this.isWalkable = true; // Indicates if the tile can be walked over
+     this.item = item;
   }
-  interact() {
+  interact(player) {
     return null;
   }
   // Draws the tile on the screen

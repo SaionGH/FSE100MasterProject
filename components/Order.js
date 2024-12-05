@@ -1,29 +1,58 @@
 // Order Class
-class Order {
+ class Order {
   constructor(recipe, customer) {
     this.recipe = recipe;
     this.customer = customer;
     this.isCompleted = false;
     this.timer = customer.patience;
+    this.status = "active";
+  }
+  
+  updateTimer(deltaTime, gameStarted, gameOver) {
+    if (gameStarted && !gameOver && this.status === "active") {
+          this.timer -= deltaTime / 1000; // Decrease timer based on elapsed time
+          if (this.timer <= 0) {
+              this.timer = 0; // Prevent negative timer
+              this.status = "expired"; // Mark the order as expired
+          }
+    }
   }
 
-  function updateTimer() {
-  }
   // Decreases the timer each frame
-  function displayTimer() {
-  fill(255); // White text
-  textSize(24); // Set text size
-  textAlign(RIGHT, BOTTOM); // Align text to bottom right
-  text(`Time: ${Math.ceil(timer)}s`, width - 20, height - 20); // Position near bottom-right corner
+   Completed() {
+        this.isCompleted = true;
+        this.status = "completed";
+    }
+   
+   calculatePoints(maxPoints = 100) {
+        // Points decrease proportionally to the remaining timer
+        return Math.ceil((this.timer / this.customer.patience) * maxPoints);
+    }
+
+    displayTimer(x, y) {
+        fill(0); // Black text
+        textSize(16); // Set text size
+        textAlign(LEFT, CENTER); // Align text to the left
+        text(`Time: ${Math.ceil(this.timer)}s`, x, y); // Display the remaining time
+    }
+
+    drawOrder(x, y) {
+        const imageSize = 50; // Set the size of the image
+
+        // Get the image associated with the recipe
+        const recipeImage = recipeImages[this.recipe];
+
+        if (recipeImage) {
+            image(recipeImage, x, y, imageSize, imageSize);
+        } else {
+            fill(0); // Black text
+            textSize(16);
+            textAlign(LEFT, CENTER);
+            text(`Order: ${this.recipe}`, x, y + 25);
+        }
+    }
+
 }
 
-  // Checks if the player's dish matches the recipe
-  checkCompletion(playerDish) {
-    // TODO: Implement order completion check
-  }
 
-  // Draws the order on the screen
-  drawOrder(x, y) {
-    // TODO: Implement drawing logic
-  }
-}
+window.Order = Order;

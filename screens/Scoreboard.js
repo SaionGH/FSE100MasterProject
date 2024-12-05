@@ -33,9 +33,21 @@ function displayScoreboard() {
   }
   // Display two larger images at the bottom, with some space above
   // Set the size for both images
-  fill("white"); // White text color
-  textSize(30); // Text size for the button
-  textAlign(CENTER, CENTER); // Center the text
-  text("Click to Return to Menu", width / 2, height - 75); // Button text
+  let imageSize1 = 200; // Size for the first image (left)
+  let imageSize2 = 200; // Larger size for the second image (right)
+  // Display the first image (img2) on the left with a smaller size
+  image(img2, 120, 330, imageSize1, imageSize1);
+  image(img3, 200, 310, 350, imageSize2);
+  const buttonX = width / 2 - 75;
+    const buttonY = height - 100;
+    const buttonWidth = 150;
+    const buttonHeight = 40;
+
+    fill(200); // Gray background for the button
+    rect(buttonX, buttonY, buttonWidth, buttonHeight, 10); // Rounded rectangle
+    fill(0); // Black text
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    text("Back to Menu", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
 }
 

@@ -5,7 +5,7 @@ function submitName(submitButton) {
   // Check if the player entered a valid name (not empty)
   if (playerName.trim() !== "") {
     // Add bonus points if the player entered a name
-    playerScore += 50; // You can adjust the bonus amount as needed
+    //playerScore += 50; // You can adjust the bonus amount as needed
     console.log("Bonus points awarded! New score: " + playerScore);
   } else {
     // No bonus points if the player left the name empty
@@ -16,10 +16,8 @@ function submitName(submitButton) {
   submitButton.hide(); // Hide submit button after submission
 
   // Add the player to the scoreboard with initial score
-  scoreboard.push({ name: playerName, score: playerScore });
-  saveData();
 
   // Go to the game options page
-  page = 3; // Go to the GameOptions page
+  page = 3; // Go to the Game Options page
 }
 

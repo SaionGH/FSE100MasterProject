@@ -6,8 +6,30 @@ class TrashTile {
     this.isWalkable = false;
     this.sz = sz;
   }
-  interact() {
-    return null;
+  interact(player) {
+    if (!player) {
+      console.error("Player object is undefined.");
+      return;
+    }
+
+    // Check if the player is holding anything
+    if (player.held) {
+      if (player.secondaryHeld) {
+        // Remove the secondary item first (ingredient on the plate)
+        console.log("Discarding secondary held item:", player.secondaryHeld);
+        player.secondaryHeld = null; // Clear secondaryHeld
+      } else if (player.held instanceof Plate) {
+        // If the player is holding a plate, discard it
+        console.log("Discarding plate.");
+        player.held = null; // Clear held plate
+      } else {
+        // If holding another object (not a plate), discard it
+        console.log("Discarding held item:", player.held);
+        player.held = null; // Clear held object
+      }
+    } else {
+      console.log("Player is not holding anything to discard.");
+    }
   }
   // Draws the counter tile
   draw() {
