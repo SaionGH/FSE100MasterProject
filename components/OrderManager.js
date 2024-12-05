@@ -13,39 +13,36 @@ class OrderManager {
     return;
   }
 
-  const recipeImage = recipeImages[recipe]; // Get the image for the recipe
+  const recipeImage = recipeImages[recipe]; 
   if (!recipeImage) {
     console.error(`No image found for recipe: ${recipe}`);
     return;
   }
 
-  const newOrder = new Order(recipe, customer, recipeImage); // Pass the image to the order
+  const newOrder = new Order(recipe, customer, recipeImage); 
   this.orders.push(newOrder);
   }
   
   addRandomOrder() {
     const { recipe, patience } = this.level.getRandomOrder();
-    const customer = { patience }; // Create a customer object with patience
-    this.orders.push(new Order(recipe, customer)); // Pass recipe and customer directly
+    const customer = { patience };
+    this.orders.push(new Order(recipe, customer)); 
     console.log(`Added Order: ${recipe}, Patience: ${patience}`);
   }
 
   // Updates all orders
   updateOrders(deltaTime, gameStarted, gameOver) {
-     if (!gameStarted || gameOver) return; // Only update if the game is running
+     if (!gameStarted || gameOver) return; 
 
     this.orders.forEach(order => {
             order.updateTimer(deltaTime, gameStarted, gameOver);
-
             // Check if an order is completed
             if (order.status === "completed") {
                 const points = order.calculatePoints();
-                this.pointManager.addPoints(points); // Award points
+                this.pointManager.addPoints(points); 
                 console.log(`Order completed! Awarded ${points} points.`);
             }
         });
-
-        // Remove completed or expired orders
         this.orders = this.orders.filter(order => order.status === "active");
   }
 
@@ -56,19 +53,16 @@ class OrderManager {
       return;
     }
 
-    const orderStartX = 10; // Starting X position
-    const orderStartY = 20; // Starting Y position
-    const orderWidth = 100; // Space between each order horizontally
-    const timerOffsetY = 60; // Distance between the order image and the timer
+    const orderStartX = 10; 
+    const orderStartY = 20; 
+    const orderWidth = 100; 
+    const timerOffsetY = 60; 
 
     this.orders.forEach((order, index) => {
-        const x = orderStartX + index * orderWidth; // Calculate X position for each order
+        const x = orderStartX + index * orderWidth; 
         const y = orderStartY;
 
-        // Draw the order image
         order.drawOrder(x, y);
-
-        // Draw the timer directly below the order
         order.displayTimer(x, y + timerOffsetY);
     });
   }
@@ -81,14 +75,13 @@ class OrderManager {
         // Order matched
         console.log(`Order matched for: ${foodItem.food}`);
         const points = order.calculatePoints();
-        this.orders.splice(i, 1); // Remove the order
-        this.pointManager.addPoints(points); // Award points
+        this.orders.splice(i, 1); 
+        this.pointManager.addPoints(points); 
         return true;
       }
     }
-
     console.log("No matching order found for:", foodItem.food);
-    return false; // No order matched
+    return false;
   }
 }
 window.OrderManager = OrderManager;
