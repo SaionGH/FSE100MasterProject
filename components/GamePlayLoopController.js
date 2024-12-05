@@ -29,7 +29,7 @@ class GamePlayLoopController{
   if (this.level.displayTiming()) {
     this.level.displayTiming();
   }
- }
+  }
   draw() {
     this.startGame();
     this.gamePlay();
@@ -39,13 +39,10 @@ class GamePlayLoopController{
         textAlign(LEFT, BOTTOM);
         text(`Score: ${this.pointManager.currentPoints}`, 10, height - 10);
     }
-}
+  }
   checkGameOver() {
     this.stopGame();
-  }
-  
-
-   
+  } 
   startGame() {
     if (!this.level) {
       this.level = new Level(map1, this.player, this.orderManager); 
