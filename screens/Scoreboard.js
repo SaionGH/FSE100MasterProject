@@ -4,7 +4,7 @@ function displayScoreboard() {
   textSize(45);
   textAlign(CENTER);
   text("Dashboard", width / 2, 50); // Title of the scoreboard
-  let maxEntries = 4;
+  let maxEntries = 5;
   let numEntries = scoreboard.length > 0 ? scoreboard.length : maxEntries;
   // Sort scoreboard by score in descending order
   scoreboard.sort((a, b) => b.score - a.score);
