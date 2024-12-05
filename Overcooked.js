@@ -70,7 +70,7 @@ function setup() {
   createCanvas(600, 600);
 
   let clearDataButton = createButton("Clear Data");
-  clearDataButton.position(550, 10); // Adjust the position as needed
+  clearDataButton.position(600, 10); // Adjust the position as needed
   // Style the button to make it red
   clearDataButton.style("background-color", "red");
   clearDataButton.style("color", "white"); // Text color
